@@ -1,5 +1,7 @@
 .body {
 	background-color: #E6E6E6;
+	width: 50%;
+	margin: auto;
 }
 
 .star-filled {
