@@ -1,7 +1,5 @@
 .body {
 	background-color: #E6E6E6;
-	width: 50%;
-	margin: auto;
 }
 
 .star-filled {
@@ -11,6 +9,17 @@
 .star-faded {
  color: grey;
 }
+
+.logo {
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.logo .glyphicon {
+	top: 8px;
+	padding: 5px;
+}
+
 
 /*
 	00287C Mid Deep Blue

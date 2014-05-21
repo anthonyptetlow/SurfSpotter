@@ -8,6 +8,10 @@
 		"description": "Expaned on requirements"
 	},
 	{
+		"time": 1.0,
+		"description": "Finished the Mock of the login screen, created a signup screen, sorted logo with paceholder icon"
+	},
+	{
 		"time": null,
 		"description": null
 	}
