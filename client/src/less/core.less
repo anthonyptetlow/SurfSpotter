@@ -1,22 +1,35 @@
 .body {
-	background-color: #E6E6E6;
-}
-
-.star-filled {
-	color: black;
-}
-
-.star-faded {
-	color: grey;
+	background-color: @backgroundColor;
 }
 
 .logo {
-	padding-bottom: 10px;
-	text-align: center;
+	display: inline-block;
+	color: @lightGrey;
+	background: @darkGrey;
 }
 
 .logo .glyphicon {
-	top: 8px;
-	padding: 5px;
+	width: 24px;
+	font-size: 24px;
+	vertical-align: middle;
 }
 
+.content {
+	margin-top: 74px;
+}
+
+.roundtangle {
+	display: inline-block;
+	padding: 5px;
+	margin-right: 10px;
+	color: @lightGrey;
+	text-align: center;
+	vertical-align: middle;
+	background: @darkGrey;
+	border-radius: 5px;
+}
+
+.roundtangle i {
+	width: 24px;
+	font-size: 24px;
+}

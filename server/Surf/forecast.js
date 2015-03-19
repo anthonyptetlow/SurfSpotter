@@ -17,8 +17,7 @@ function processRssFeed(feed) {
 		place: util.parsePlaceFromChannelTitle(feed.rss.channel[0].title[0])
 	};
 
-	newFeed.forcast = _.map(feed.rss.channel[0].item, function (item) {
-		console.log(item);
+	newFeed.forecast = _.map(feed.rss.channel[0].item, function (item) {
 		return {
 			date: util.parseDateFromTitle(item.title[0]),
 			weather: util.parseForcastFromDescription(item.description[0])

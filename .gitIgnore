@@ -3,3 +3,4 @@ client/src/lib/*
 *.log
 *~
 public
+*.sublime*

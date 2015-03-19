@@ -3,10 +3,9 @@ angular.module('surfspotter').service('SurfService', [
 	'$q',
 	function ($http, $q) {
 
-		function getForcast(spotId) {
-			var defered = $q.defer(),
-				url = '/api/msw/forecast/' + spotId;
 
+		function getUrl(url) {
+			var defered = $q.defer();
 			$http.get(url)
 				.success(function(data) {
 					defered.resolve(data);
@@ -17,8 +16,19 @@ angular.module('surfspotter').service('SurfService', [
 			return defered.promise;
 		}
 
+		function getForecast(spotId) {
+			var url = '/api/msw/forecast/' + spotId;
+			return getUrl(url);
+		}
+		function getLocations() {
+			return getUrl('/api/msw/locations');
+		}
+
+
+
 		return {
-			getForcast: getForcast
+			getForecast: getForecast,
+			getLocations: getLocations
 		};
 	}
 ]);
