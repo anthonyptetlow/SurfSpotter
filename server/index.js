@@ -4,7 +4,14 @@ var express = require('express'),
     session = require('express-session'),
     cookieParser = require('cookie-parser'),
     errorHandler = require('errorhandler'),
+    mongoose   = require('mongoose'),
     app = express();
+
+
+
+var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/SurfStore'
+
+mongoose.connect(mongoUri); // connect to our database
 
 app.set('port', (process.env.PORT || 5000));
 
