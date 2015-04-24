@@ -26,9 +26,8 @@ router.get('/locations', function (req, res) {
     });
 });
 
-router.get('/locations/stored', function (req, res) {
-    console.log(Surf.locations.getStoredLocations);
-    Surf.locations.getStoredLocations()
+router.get('/locations/:partialName', function (req, res) {
+    Surf.locations.searchLocations(req.params.partialName)
     .then(function (data) {
         res.json(data).end();
     }, function (error) {

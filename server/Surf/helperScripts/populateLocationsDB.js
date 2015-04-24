@@ -1,4 +1,4 @@
-var location = require('./locations.js'),
+var location = require('../locations.js'),
 	locationData = require('./locationData.js'),
     mongoose   = require('mongoose'),
     _ = require('lodash');

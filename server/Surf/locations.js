@@ -3,6 +3,14 @@ var q = require('q'),
 
 var LocationModel = require('./models/Location.js');
 
+function stripDatabaseLocation(location) {
+	return {
+		id: location._id,
+		name: location.name
+	};
+}
+
+
 function createLocation(id, name) {
 	var deferred = q.defer();
 	var location = new LocationModel();
@@ -19,18 +27,25 @@ function createLocation(id, name) {
 }
 
 function getAllLocations() {
-	console.log('getting stored locs');
 	var deferred = q.defer();
 	LocationModel.find(function (error, locations) {
 		if (error) {
 			deferred.reject(error);
 		} else {
-			deferred.resolve(_(locations).map(function(loc){
-				return {
-					id: loc._id,
-					name: loc.name
-				};
-			}));
+			deferred.resolve(_(locations).map(stripDatabaseLocation));
+		}
+	});
+	return deferred.promise;
+}
+
+
+function searchLocations(partialName) {
+	var deferred = q.defer();
+	LocationModel.find({name: new RegExp(partialName, 'i')} , function (error, locations) {
+		if (error) {
+			deferred.reject(error);
+		} else {
+			deferred.resolve(_(locations).map(stripDatabaseLocation));
 		}
 	});
 	return deferred.promise;
@@ -38,5 +53,6 @@ function getAllLocations() {
 
 module.exports = {
 	createLocation: createLocation,
-	getLocations: getAllLocations
+	getLocations: getAllLocations,
+	searchLocations: searchLocations
 };
