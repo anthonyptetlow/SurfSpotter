@@ -1,0 +1,15 @@
+<div class="alert" role="alert" data-ng-if="Notification.message" data-ng-class="{
+									'alert-success': Notification.success,
+									'alert-info': Notification.info,
+									'alert-warning': Notification.warning,
+									'alert-danger': Notification.danger
+								}">
+
+	<span class="glyphicon" data-ng-class="{
+									'glyphicon-ok-sign': Notification.success,
+									'glyphicon-info-sign': Notification.info,
+									'glyphicon-remove-sign': Notification.warning,
+									'glyphicon-remove-sign': Notification.danger
+								}"></span>
+	<span data-ng-bind="Notification.message"></span>
+</div>

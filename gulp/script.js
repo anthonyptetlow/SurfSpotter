@@ -20,7 +20,7 @@ var eslintConf = {
 
 
 gulp.task('script', function() {
-	return gulp.src([__dirname + '/../client/src/**.*.app.js', __dirname + '/../client/src/**/*.js', '!' + __dirname + '/../client/src/lib/**/*.js'])
+	return gulp.src([__dirname + '/../src/**.*.app.js', __dirname + '/../src/**/*.js', '!' + __dirname + '/../src/lib/**/*.js'])
         .pipe(eslint(eslintConf))
         .pipe(eslint.format())
 		.pipe(concat('app.js'))
