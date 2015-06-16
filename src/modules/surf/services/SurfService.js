@@ -24,11 +24,14 @@ angular.module('surfspotter').service('SurfService', [
 			return getUrl('/api/msw/locations');
 		}
 
-
+		function findLocations(partial) {
+			return getUrl('/api/msw/locations/find/' + partial);
+		}
 
 		return {
 			getForecast: getForecast,
-			getLocations: getLocations
+			getLocations: getLocations,
+			findLocations: findLocations
 		};
 	}
 ]);

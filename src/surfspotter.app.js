@@ -14,12 +14,12 @@ angular.module('surfspotter', [
 	.state('location', {
 		url: '/',
 		templateUrl: './modules/surf/partials/Locations.html',
-		controller: 'LocationController as Location',
-		resolve: {
-			locations: function (SurfService) {
-				return SurfService.getLocations();
-			}
-		}
+		controller: 'LocationController as Location'
+		// resolve: {
+		// 	locations: function (SurfService) {
+		// 		return SurfService.getLocations();
+		// 	}
+		// }
 	})
 	.state('forecast', {
 		url: '/forecast/:spotId',
