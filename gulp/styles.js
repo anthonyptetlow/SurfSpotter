@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 	recess = require('gulp-recess');
 
 gulp.task('styles', function() {
-	return gulp.src(__dirname + '/../src/less/SurfSpotter.less')
+	return gulp.src(__dirname + '/../src/less/App.less')
 		.pipe(recess())
 		.on('error', function (error) {
 	        console.error(String(error));
