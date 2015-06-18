@@ -1,6 +1,7 @@
 <html ng-app="surfspotter">
 	<head>
 		<meta charset="utf-8">
+		<meta name=viewport content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="./styles/lib/bootstrap.css">
 		<link rel="stylesheet" href="./styles/lib/font-awesome.css">
 		<link rel="stylesheet" href="./styles/core.css">
@@ -8,11 +9,17 @@
 	<body class="body">
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
-				<!-- <a class="navbar-brand" href="#">
-					<div class="logo roundtangle">
+				<a class="navbar-brand" data-ui-sref="location">
+					<div class="logo">
 						<i class="glyphicon glyphicon-cloud"></i> Surf Spotter
 					</div>
-				</a> -->
+				</a>
+
+				<ul class="nav navbar-nav navbar-right">
+			        <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+			        <li  data-ui-sref-active="hide"><a data-ui-sref="signIn">Sign In</a></li>
+			        <li  data-ui-sref-active="hide"><a data-ui-sref="signUp">Sign Up</a></li>
+				</ul>
 
 				<!-- <ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
@@ -34,7 +41,7 @@
 			</div>
 		</nav>
 		<div data-notification></div>
-		<div class="content" data-ui-view></div>
+		<div class="container content" data-ui-view></div>
 	</body>
 	<script src="./js/lib/jquery.js"></script>
 	<script src="./js/lib/angular_all.js"></script>
