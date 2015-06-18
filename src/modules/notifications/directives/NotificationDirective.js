@@ -8,8 +8,14 @@ angular.module('surfspotter').directive('notification', [
 		// priority: 1,
 		// terminal: true,
 		// scope: {}, // {} = isolate, true = child, false/undefined = no change
-		controller: function() {},
-		controllerAs: 'Notification',
+		controller: function() {
+			var Notifications = this;
+
+			Notifications.removeNotification = function (indexToRemove) {
+				Notifications.list.splice(indexToRemove, 1);
+			};
+		},
+		controllerAs: 'Notifications',
 		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
 		// restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
 		// template: '',
@@ -17,29 +23,31 @@ angular.module('surfspotter').directive('notification', [
 		// replace: true,
 		// transclude: true,
 		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-		link: function($scope, iElm, iAttrs, Notification) {
+		link: function($scope, iElm, iAttrs, Notifications) {
+			Notifications.list = [];
 
 			$scope.$on('$stateChangeSuccess', function () {
-				var newNotification = NotificationService.shiftNotification();
-				if(angular.isDefined(newNotification)) {
+				var newNotifications = NotificationService.shiftAllNotifications();
 
-					Notification.message = newNotification.message;
 
-					if(angular.isDefined(newNotification.type)) {
-						Notification[newNotification.type] = true;
+				newNotifications.forEach(function(message){
+
+					if(angular.isDefined(message.type)) {
+						message[message.type] = true;
 					} else {
-						Notification.info = true;
+						message.info = true;
+					}
+					Notifications.list.push(message);
+
+					if(message.timeout !== null) {
+						$timeout(function () {
+							var index = Notifications.list.indexOf(message);
+							Notifications.list.splice(index, 1);
+						}, message.timeout ? message.timeout : 4000);
 					}
 
-					$timeout(function () {
-						Notification.message = undefined;
-						Notification.type = undefined;
-					}, 4000);
-				}
+				});
 			});
-
-
-
 		}
 	};
 }]);

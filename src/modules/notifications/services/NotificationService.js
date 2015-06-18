@@ -5,27 +5,29 @@ angular.module('surfspotter').service('NotificationService', [
 			$localStorage.notifications = [];
 		}
 
-		function addToNextState(message, type) {
-			$localStorage.notifications.push({message: message, type: type});
+		function addToNextState(message, type, timeout) {
+			$localStorage.notifications.push({message: message, type: type, timeout: timeout});
 		}
 
-		function getNotifications() {
-			return $localStorage.notifications;
-		}
+		// function getNotifications() {
+		// 	return $localStorage.notifications;
+		// }
 
 		function shiftNotification() {
 			return $localStorage.notifications.shift();
 		}
 
-		function clearNotifications() {
-			delete $localStorage.notifications;
+		function shiftAllNotifications() {
+			var notifications = $localStorage.notifications;
+			$localStorage.notifications = [];
+			return notifications;
 		}
 
 		return {
 			addToNextState: addToNextState,
-			getNotifications: getNotifications,
-			clearNotifications: clearNotifications,
-			shiftNotification: shiftNotification
+			// getNotifications: getNotifications,
+			shiftNotification: shiftNotification,
+			shiftAllNotifications: shiftAllNotifications
 		};
 	}
 ]);

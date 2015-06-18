@@ -1,15 +1,18 @@
-<div class="alert" role="alert" data-ng-if="Notification.message" data-ng-class="{
-									'alert-success': Notification.success,
-									'alert-info': Notification.info,
-									'alert-warning': Notification.warning,
-									'alert-danger': Notification.danger
-								}">
+<div class="alert-container animate-container">
+	<div class="alert animate-repeat" data-ng-repeat="notification in Notifications.list" role="alert" data-ng-if="notification.message" data-ng-class="{
+										'alert-success': notification.success,
+										'alert-info': notification.info,
+										'alert-warning': notification.warning,
+										'alert-danger': notification.danger
+									}">
 
-	<span class="glyphicon" data-ng-class="{
-									'glyphicon-ok-sign': Notification.success,
-									'glyphicon-info-sign': Notification.info,
-									'glyphicon-remove-sign': Notification.warning,
-									'glyphicon-remove-sign': Notification.danger
-								}"></span>
-	<span data-ng-bind="Notification.message"></span>
+		<span class="glyphicon" data-ng-class="{
+										'glyphicon-ok-sign': notification.success,
+										'glyphicon-info-sign': notification.info,
+										'glyphicon-remove-sign': notification.warning,
+										'glyphicon-remove-sign': notification.danger
+									}"></span>
+		<span data-ng-bind="notification.message"></span>
+		<i class="fa fa-times pull-right" data-ng-click="Notifications.removeNotification($index)"></i>
+	</div>
 </div>
