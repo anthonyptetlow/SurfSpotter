@@ -1,8 +1,7 @@
 angular.module('surfspotter').service('AuthService', [
-	'$http',
 	'$q',
 	'$sessionStorage',
-	function ($http, $q, $sessionStorage) {
+	function ($q, $sessionStorage) {
 		function storeToken(token) {
 			$sessionStorage.token = token;
 		}

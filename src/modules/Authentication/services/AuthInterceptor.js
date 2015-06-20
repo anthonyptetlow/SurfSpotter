@@ -1,9 +1,9 @@
 angular.module('surfspotter').factory('TokenInterceptor', [
     '$q',
-    '$state',
+    '$injector',
     'AuthService',
     'NotificationService',
-    function ($q, $state, AuthService, NotificationService) {
+    function ($q, $injector, AuthService, NotificationService) {
         return {
             request: function (config) {
                 config.headers = config.headers || {};
@@ -17,16 +17,16 @@ angular.module('surfspotter').factory('TokenInterceptor', [
                 return $q.reject(rejection);
             },
 
-            response: function (response) {
-            },
+            // response: function (response) {
+            // },
 
             /* Revoke client authentication if 401 is received */
             responseError: function(rejection) {
-                if (rejection != null && rejection.status === 401 && (AuthService.isAuthenticated()) {
+                if (rejection != null && rejection.status === 401 && AuthService.isAuthenticated()) {
                     AuthService.clearToken();
                     //Redirect to signin
-                    NotificationService.addToNextState('danger','You are not logged in or your sesison has expired. Please login again.', null);
-                    $state.go('signIn');
+                    NotificationService.addToNextState('danger', 'You are not logged in or your sesison has expired. Please login again.', null);
+                    $injector.get('$state').go('signIn');
                 }
 
                 return $q.reject(rejection);
@@ -34,3 +34,7 @@ angular.module('surfspotter').factory('TokenInterceptor', [
         };
     }
 ]);
+
+angular.module('surfspotter').config(['$httpProvider', function ($httpProvider) {
+    $httpProvider.interceptors.push('TokenInterceptor');
+}]);
