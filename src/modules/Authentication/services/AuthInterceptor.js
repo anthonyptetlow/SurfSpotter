@@ -27,7 +27,7 @@ angular.module('surfspotter').factory('TokenInterceptor', [
                 if (rejection != null && rejection.status === 401 && AuthService.isAuthenticated()) {
                     AuthService.clearToken();
                     //Redirect to signin
-                    NotificationService.addToNextState('danger', 'You are not logged in or your sesison has expired. Please login again.', null);
+                    NotificationService.addToNextState('You are not logged in or your sesison has expired. Please login again.', 'danger', null);
                     $injector.get('$state').go('signIn');
                 }
 

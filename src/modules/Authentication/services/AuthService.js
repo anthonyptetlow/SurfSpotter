@@ -13,8 +13,9 @@ angular.module('surfspotter').service('AuthService', [
 		}
 
 		function isAuthenticated() {
-			return !!$sessionStorage.token;
+			return angular.isDefined($sessionStorage.token);
 		}
+
 
 		return {
 			storeToken: storeToken,
