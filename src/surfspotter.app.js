@@ -14,7 +14,7 @@ angular.module('surfspotter', [
 	// })
 	.state('location', {
 		url: '/',
-		templateUrl: './modules/surf/partials/Locations.html',
+		templateUrl: './modules/Surf/partials/Locations.html',
 		controller: 'LocationController as Location'
 		// resolve: {
 		// 	locations: function (SurfService) {
@@ -24,7 +24,7 @@ angular.module('surfspotter', [
 	})
 	.state('forecast', {
 		url: '/forecast/:spotId',
-		templateUrl: './modules/surf/partials/Forecast.html',
+		templateUrl: './modules/Surf/partials/Forecast.html',
 		controller: 'ForecastController as Forecast',
 		resolve: {
 			forecast: function (SurfService, $stateParams) {
@@ -34,12 +34,12 @@ angular.module('surfspotter', [
 	})
 	.state('signIn', {
 		url: '/signIn',
-		templateUrl: './modules/signin/partials/SignIn.html',
+		templateUrl: './modules/Authentication/partials/SignIn.html',
 		controller: 'SignInController as SignIn'
 	})
 	.state('signUp', {
 		url: '/signUp',
-		templateUrl: './modules/signup/partials/SignUp.html',
+		templateUrl: './modules/Authentication/partials/SignUp.html',
 		controller: 'SignUpController as SignUp'
 	});
 });
