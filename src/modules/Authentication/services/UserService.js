@@ -10,7 +10,7 @@ angular.module('surfspotter').service('UserService', [
 				},
 				checkToken: {
 					method: 'GET',
-					url: '/api/user/token/:token',
+					url: '/api/token/:token',
 					isArray: false
 				}
 			});
