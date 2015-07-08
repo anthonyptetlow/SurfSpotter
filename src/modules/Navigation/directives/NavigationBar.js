@@ -5,13 +5,13 @@ angular.module('surfspotter').directive('navigationBar', [
 	function($state, AuthService, NotificationService) {
 		return {
 			// scope: {}, // {} = isolate, true = child, false/undefined = no change
-			controller: function($scope, $element, $attrs) {
+			controller: function() {
 				var NavigationBar = this;
 				NavigationBar.isUserAuthenticated = AuthService.isAuthenticated;
 
 				NavigationBar.signOut = function () {
 					AuthService.clearToken();
-                    NotificationService.addToNextState('You are now signed out', 'success', 2000);
+                    			NotificationService.addToNextState('You are now signed out', 'success', 2000);
 					$state.go('location', {}, {reload: true});
 				};
 
@@ -27,9 +27,7 @@ angular.module('surfspotter').directive('navigationBar', [
 			replace: true,
 			// transclude: true,
 			// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-			link: function($scope, iElm, iAttrs, controller) {
-
-			}
+			link: function() {}
 		};
 	}
 ]);
