@@ -30,6 +30,8 @@ angular.module('surfspotter').service('AuthService', [
 		}
 
 		function isAuthenticated() {
+			// Maybe updte this to use the npm module to check validity?
+			//Or Make a call to the server?
 			return angular.isDefined($sessionStorage.token);
 		}
 

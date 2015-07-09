@@ -1,36 +1,30 @@
 angular.module('surfspotter').service('SurfService', [
 	'$http',
 	'$q',
-	function ($http, $q) {
-
-
-		function getUrl(url) {
-			var defered = $q.defer();
-			$http.get(url)
-				.success(function(data) {
-					defered.resolve(data);
-				})
-				.error(function(data, status) {
-					defered.reject({status: status, data: data});
-				});
-			return defered.promise;
-		}
+	'$resource',
+	function ($http, $q, $resource) {
+		var forecast = $resource('/api/msw/forecast/:spotId', {}),
+			location = $resource('/api/msw/locations', {}, {
+				find: {
+					method: 'GET',
+					url: '/api/msw/locations/find/:partial',
+					isArray: true
+				}});
 
 		function getForecast(spotId) {
-			var url = '/api/msw/forecast/' + spotId;
-			return getUrl(url);
+			return forecast.get({spotId: spotId}).$promise;
 		}
-		function getLocations() {
-			return getUrl('/api/msw/locations');
-		}
+		// function getLocations() {
+		// 	return getUrl('/api/msw/locations').$promise;
+		// }
 
 		function findLocations(partial) {
-			return getUrl('/api/msw/locations/find/' + partial);
+			return location.find({partial: partial}).$promise;
 		}
 
 		return {
 			getForecast: getForecast,
-			getLocations: getLocations,
+			// getLocations: getLocations,
 			findLocations: findLocations
 		};
 	}
