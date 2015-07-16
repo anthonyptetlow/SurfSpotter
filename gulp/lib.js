@@ -9,16 +9,6 @@ gulp.task('lib', ['bower'], function () {
 		])
 		.pipe(gulp.dest(__dirname + '/../public/styles/lib/'));
 
-
-
-	gulp.src([  __dirname + '/../src/lib/bootstrap/dist/js/bootstrap.js',
-				__dirname + '/../src/lib/jquery/dist/jquery.js'
-
-		])
-		.pipe(gulp.dest(__dirname + '/../public/js/lib/'));
-
-
-
 	gulp.src([  __dirname + '/../src/lib/bootstrap/fonts/*',
 				__dirname + '/../src/lib/fontawesome/fonts/*'
 		])
