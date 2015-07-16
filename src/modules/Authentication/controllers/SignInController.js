@@ -12,7 +12,7 @@ angular.module('surfspotter').controller('SignInController', [
 			}).then(function (user) {
 				AuthService.storeUser(user);
                 NotificationService.addToNextState('You are now logged in, have a great time :)', 'success', 2000);
-				$state.go('location');
+				$state.go('app');
 			});
 		};
 	}

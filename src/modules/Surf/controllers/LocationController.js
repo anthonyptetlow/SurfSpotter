@@ -1,7 +1,8 @@
 angular.module('surfspotter').controller('LocationController', [
     '$timeout',
+    '$rootScope',
     'SurfService',
-    function ($timeout, SurfService) {
+    function ($timeout, $rootScope, SurfService) {
         // console.log(locations);
         var Locations = this;
 
@@ -21,5 +22,10 @@ angular.module('surfspotter').controller('LocationController', [
             }
 
         };
+
+        $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+            delete Locations.locationQuery;
+            delete Locations.locations;
+        });
     }
 ]);

@@ -8,19 +8,8 @@ angular.module('surfspotter', [
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
-	// .state('app', {
-	// 	url: '/',
-	// 	templateUrl: './Home.html'
-	// })
-	.state('location', {
-		url: '/',
-		templateUrl: './modules/Surf/partials/Locations.html',
-		controller: 'LocationController as Location'
-		// resolve: {
-		// 	locations: function (SurfService) {
-		// 		return SurfService.getLocations();
-		// 	}
-		// }
+	.state('app', {
+		url: '/'
 	})
 	.state('forecast', {
 		url: '/forecast/:spotId',
