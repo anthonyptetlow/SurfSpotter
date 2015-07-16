@@ -7,10 +7,9 @@ angular.module('surfspotter').factory('TokenInterceptor', [
         return {
             request: function (config) {
                 config.headers = config.headers || {};
-                // if (AuthService.isAuthenticated()) {
-                //     config.headers.Authorization = 'Bearer ' + AuthService.getToken();
-                // }
-                config.url += (config.url.indexOf('?') > 0 ? '&' : '?') + new Date().getTime();
+                if (AuthService.isAuthenticated() && config.url.indexOf('/api/') === 0) {
+                    config.url += (config.url.indexOf('?') > 0 ? '&' : '?') + 'token=' + AuthService.getToken();
+                }
 
                 return config;
             },

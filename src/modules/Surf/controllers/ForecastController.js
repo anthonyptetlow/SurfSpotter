@@ -1,12 +1,24 @@
 angular.module('surfspotter').controller('ForecastController', [
+	'$state',
+	'SurfService',
 	'forecast',
-	function (forecast) {
-		var Surf = this;
-		Surf.place = forecast.place;
-		Surf.forecast = forecast.forecast;
+	function ($state, SurfService, forecast) {
+		var Forecast = this;
+		Forecast.place = forecast.place;
+		Forecast.forecast = forecast.forecast;
 
-		Surf.saveToFavorites = function () {
-			console.log(Surf.place.id);
+		Forecast.setFavorite = function (isFavourite) {
+			console.log(isFavourite);
+			if (isFavourite) {
+				SurfService.saveFavourite().then(function (data) {
+					console.log(data);
+				}, function (error) {
+					console.log(error);
+
+				});
+			} else {
+
+			}
 		};
 	}
 ]);
