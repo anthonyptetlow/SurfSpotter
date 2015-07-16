@@ -5,7 +5,7 @@ angular.module('surfspotter').controller('AuthController', [
 
 		Auth.isSignedin = function () {
 			return AuthService.isAuthenticated();
-		}
+		};
 
 	}
 ]);

@@ -10,14 +10,21 @@ angular.module('surfspotter').controller('ForecastController', [
 		Forecast.setFavorite = function (isFavourite) {
 			console.log(isFavourite);
 			if (isFavourite) {
-				SurfService.saveFavourite().then(function (data) {
+				SurfService.saveFavourite(Forecast.place.id).then(function (data) {
 					console.log(data);
+					$state.reload();
 				}, function (error) {
 					console.log(error);
 
 				});
 			} else {
-
+				SurfService.removeFavourite(Forecast.place.id).then(function (data) {
+					console.log(data);
+					$state.reload();
+					// $state.go($state.current, {}, {reload: true});
+				}, function (error) {
+					console.log(error);
+				});
 			}
 		};
 	}

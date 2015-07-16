@@ -18,6 +18,10 @@ angular.module('surfspotter').service('SurfService', [
 				setFavourite: {
 					method: 'POST',
 					url: '/api/msw/locations/favourite/'
+				},
+				removeFavourite: {
+					method: 'DELETE',
+					url: '/api/msw/locations/favourite/'
 				}
 			});
 
@@ -35,12 +39,15 @@ angular.module('surfspotter').service('SurfService', [
 		function getFavourites() {
 			return location.getFavourites().$promise;
 		}
-
+		function removeFavourite(locationId) {
+			return location.removeFavourite({locationId:locationId}).$promise;
+		}
 		return {
 			getForecast: getForecast,
 			findLocations: findLocations,
 			getFavourites: getFavourites,
 			saveFavourite: saveFavourite,
+			removeFavourite: removeFavourite
 
 		};
 	}
