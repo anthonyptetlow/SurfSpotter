@@ -12,7 +12,7 @@ angular.module('surfspotter').directive('navigationBar', [
 				NavigationBar.signOut = function () {
 					AuthService.clearToken();
 					NotificationService.addToNextState('You are now signed out', 'success', 2000);
-					$state.go('location', {}, {reload: true});
+					$state.go('app', {}, {reload: true});
 				};
 
 				NavigationBar.getUser = AuthService.getUser;
