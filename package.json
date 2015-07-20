@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "scripts": {
     "start": "",
-    "postinstall": "node node_modules/.bin/bower install; node node_modules/.bin/gulp buildOnce"
   },
   "dependencies": {
     "bower": "^1.3.12",
