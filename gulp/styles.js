@@ -16,7 +16,7 @@ gulp.task('styles', function() {
 	 //        console.error(String(error));
   //       })
 		.pipe(less())
-		.pipe(!!util.env.production ? util.noop() : minifyCss())
+		.pipe(!!util.env.production ? minifyCss() : util.noop())
 		.pipe(concat('core.css'))
 		.pipe(gulp.dest(__dirname + '/../public/styles/'));
 

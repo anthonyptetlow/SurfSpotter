@@ -1,6 +1,8 @@
 var gulp = require('gulp'),
 	concat = require('gulp-concat'),
-	eslint = require('gulp-eslint');
+	eslint = require('gulp-eslint'),
+    uglify = require('gulp-uglify');
+    util = require('gulp-util');
 
 
 var eslintConf = {
@@ -24,6 +26,7 @@ gulp.task('script', function() {
         .pipe(eslint(eslintConf))
         .pipe(eslint.format())
 		.pipe(concat('app.js'))
+        .pipe(!!util.env.production ? uglify() : util.noop())
 		.pipe(gulp.dest(__dirname + '/../public/js'))
 		.on('error', function (error) {
             console.error(String(error));

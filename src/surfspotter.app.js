@@ -4,7 +4,7 @@ angular.module('surfspotter', [
 	'ngResource',
 	'ngStorage',
 	'ngAnimate',
-	'ui.router']).config(function($stateProvider, $urlRouterProvider){
+	'ui.router']).config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
@@ -31,4 +31,4 @@ angular.module('surfspotter', [
 		templateUrl: './modules/Authentication/partials/SignUp.html',
 		controller: 'SignUpController as SignUp'
 	});
-});
+}]);
