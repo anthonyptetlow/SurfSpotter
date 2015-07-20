@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
 	concat = require('gulp-concat');
 
-gulp.task('lib', ['bower'], function () {
+gulp.task('lib', function () {
 
 
 	gulp.src([  __dirname + '/../src/lib/bootstrap/dist/css/bootstrap.css',
