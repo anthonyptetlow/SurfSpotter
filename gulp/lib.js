@@ -17,13 +17,11 @@ gulp.task('lib', function () {
 	var styleFiles;
 	if(util.env.production) {
 		styleFiles = [
-			__dirname + '/../src/lib/bootstrap/dist/css/bootstrap.min.css',
-			__dirname + '/../src/lib/fontawesome/css/font-awesome.min.css'
+			__dirname + '/../src/lib/bootstrap/dist/css/bootstrap.min.css'
 		];
 	} else {
 		styleFiles = [
-			__dirname + '/../src/lib/bootstrap/dist/css/bootstrap.css',
-			__dirname + '/../src/lib/fontawesome/css/font-awesome.css'
+			__dirname + '/../src/lib/bootstrap/dist/css/bootstrap.css'
 		];
 	}
 
