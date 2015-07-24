@@ -1,0 +1,9 @@
+<!-- <div class="col-md-8 col-md-offset-2"> -->
+	<input type="text" class="form-control" data-ng-model="Location.locationQuery" ng-model-options="{debounce: 300}" data-ng-change="Location.findLocations(Location.locationQuery)" placeholder="Search for Location">
+
+	<div class="locations-list" data-ng-class="{'expanded': Location.locations.length > 0}">
+		<a class="text-center location" data-ng-repeat="location in Location.locations | filter:Location.locationQuery"
+		ui-sref="forecast({ spotId: {{location.id}} })" data-ng-bind="location.name"></a>
+	</div>
+
+<!-- </div> -->
