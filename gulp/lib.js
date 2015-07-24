@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
 	concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
     util = require('gulp-util');
 
 
@@ -51,6 +52,7 @@ gulp.task('lib', function () {
 
 	return gulp.src(angularJsFiles)
 		.pipe(concat('angular_all.js'))
+        .pipe(!!util.env.production ? uglify() : util.noop())
 		.pipe(gulp.dest(__dirname + '/../public/js/lib'))
 		.on('error', function (error) {
 	        console.error(String(error));
