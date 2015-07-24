@@ -3,7 +3,6 @@
 angular.module('surfspotter', [
 	'ngResource',
 	'ngStorage',
-	'ngAnimate',
 	'ui.router']).config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/');
 
