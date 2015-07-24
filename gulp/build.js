@@ -6,6 +6,8 @@ require('./styles');
 require('./assets');
 require('./lib');
 require('./watch');
+require('./critical');
 
-gulp.task('buildOnce', ['clean', 'lib', 'script', 'html', 'styles', 'assets']);
+gulp.task('buildOnce', ['clean', 'lib', 'script', 'html', 'styles', 'assets', 'critical']);
 gulp.task('build', ['buildOnce', 'watch']);
+

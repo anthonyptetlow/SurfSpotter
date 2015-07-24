@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
 	server = require('gulp-server-livereload');
 	require('./gulp/build');
-	require('./gulp/deploy');
+	require('./gulp/deploy'),
 
 gulp.task('server', function() {
   gulp.src('public')
@@ -10,4 +10,3 @@ gulp.task('server', function() {
       port: 8000
     }));
 });
-
