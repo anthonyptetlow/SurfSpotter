@@ -8,22 +8,13 @@ angular.module('surfspotter').controller('ForecastController', [
 		Forecast.forecast = forecast.forecast;
 
 		Forecast.setFavorite = function (isFavourite) {
-			console.log(isFavourite);
 			if (isFavourite) {
-				SurfService.saveFavourite(Forecast.place.id).then(function (data) {
-					console.log(data);
+				SurfService.saveFavourite(Forecast.place.id).then(function () {
 					$state.reload();
-				}, function (error) {
-					console.log(error);
-
 				});
 			} else {
-				SurfService.removeFavourite(Forecast.place.id).then(function (data) {
-					console.log(data);
+				SurfService.removeFavourite(Forecast.place.id).then(function () {
 					$state.reload();
-					// $state.go($state.current, {}, {reload: true});
-				}, function (error) {
-					console.log(error);
 				});
 			}
 		};

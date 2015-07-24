@@ -40,7 +40,7 @@ angular.module('surfspotter').service('SurfService', [
 			return location.getFavourites().$promise;
 		}
 		function removeFavourite(locationId) {
-			return location.removeFavourite({locationId:locationId}).$promise;
+			return location.removeFavourite({locationId: locationId}).$promise;
 		}
 		return {
 			getForecast: getForecast,
