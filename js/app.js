@@ -353,22 +353,13 @@ angular.module('surfspotter').controller('ForecastController', [
 		Forecast.forecast = forecast.forecast;
 
 		Forecast.setFavorite = function (isFavourite) {
-			console.log(isFavourite);
 			if (isFavourite) {
-				SurfService.saveFavourite(Forecast.place.id).then(function (data) {
-					console.log(data);
+				SurfService.saveFavourite(Forecast.place.id).then(function () {
 					$state.reload();
-				}, function (error) {
-					console.log(error);
-
 				});
 			} else {
-				SurfService.removeFavourite(Forecast.place.id).then(function (data) {
-					console.log(data);
+				SurfService.removeFavourite(Forecast.place.id).then(function () {
 					$state.reload();
-					// $state.go($state.current, {}, {reload: true});
-				}, function (error) {
-					console.log(error);
 				});
 			}
 		};
@@ -400,7 +391,7 @@ angular.module('surfspotter').controller('LocationController', [
 
         };
 
-        $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+        $rootScope.$on('$stateChangeSuccess', function() {
             delete Locations.locationQuery;
             delete Locations.locations;
         });
@@ -415,7 +406,7 @@ angular.module('surfspotter').directive('locationSearch', [ function(){
 		// terminal: true,
 		scope: {}, // {} = isolate, true = child, false/undefined = no change
 		controller: 'LocationController',
-		controllerAs:  'Location',
+		controllerAs: 'Location',
 		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
 		restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
 		// template: '',
@@ -423,8 +414,7 @@ angular.module('surfspotter').directive('locationSearch', [ function(){
 		// replace: true,
 		// transclude: true,
 		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-		link: function($scope, iElm, iAttrs, controller) {
-
+		link: function() {
 		}
 	};
 }]);
@@ -480,7 +470,7 @@ angular.module('surfspotter').service('SurfService', [
 			return location.getFavourites().$promise;
 		}
 		function removeFavourite(locationId) {
-			return location.removeFavourite({locationId:locationId}).$promise;
+			return location.removeFavourite({locationId: locationId}).$promise;
 		}
 		return {
 			getForecast: getForecast,
