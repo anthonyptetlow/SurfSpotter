@@ -8,23 +8,22 @@ gulp.task('lib', function () {
 
 	// Fonts
 	gulp.src([  __dirname + '/../src/lib/bootstrap/fonts/*',
-				__dirname + '/../src/lib/fontawesome/fonts/*'
 		])
-		.pipe(gulp.dest(__dirname + '/../public/styles/fonts/'));
+		.pipe(gulp.dest(__dirname + '/../public/fonts/'));
 
 
 
-	// Styles
-	var styleFiles;
-	if(util.env.production) {
-		styleFiles = [
-			__dirname + '/../src/lib/bootstrap/dist/css/bootstrap.min.css'
-		];
-	} else {
-		styleFiles = [
-			__dirname + '/../src/lib/bootstrap/dist/css/bootstrap.css'
-		];
-	}
+	// // Styles
+	var styleFiles = [];
+	// if(util.env.production) {
+		// styleFiles = [
+		// 	__dirname + '/../src/lib/bootstrap/dist/css/bootstrap.min.css'
+		// ];
+	// } else {
+	// 	styleFiles = [
+	// 		__dirname + '/../src/lib/bootstrap/dist/css/bootstrap.css'
+	// 	];
+	// }
 
 	gulp.src(styleFiles)
 		.pipe(concat('styles.css'))
