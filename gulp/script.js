@@ -23,9 +23,6 @@ var eslintConf = {
 
 
 gulp.task('script', function() {
-
-
-
     //JS
     var angularJsFiles;
     if(util.env.production) {
@@ -45,24 +42,11 @@ gulp.task('script', function() {
         ];
     }
 
-    // return gulp.src(angularJsFiles)
-    //     .pipe(concat('angular_all.js'))
-    //     .pipe(!!util.env.production ? uglify() : util.noop())
-    //     .pipe(gulp.dest(__dirname + '/../public/js/lib'))
-    //     .on('error', function (error) {
-    //         console.error(String(error));
-    //     })
-
-
-
-
-
 	return gulp.src([__dirname + '/../src/**.*.app.js', __dirname + '/../src/**/*.js', '!' + __dirname + '/../src/lib/**/*.js'])
         .pipe(eslint(eslintConf))
         .pipe(eslint.format())
-		// .pipe(concat('app.js'))
-        .pipe(!!util.env.production ? uglify() : util.noop())
         .pipe(addsrc.prepend(angularJsFiles))
+        .pipe(!!util.env.production ? uglify() : util.noop())
         .pipe(concat('app.js'))
 		.pipe(gulp.dest(__dirname + '/../public/js'))
 		.on('error', function (error) {
