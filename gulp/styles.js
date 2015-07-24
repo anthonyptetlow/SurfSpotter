@@ -5,6 +5,9 @@ var gulp = require('gulp'),
 	util = require('gulp-util');
 	recess = require('gulp-recess');
 
+var uncss = require('gulp-uncss');
+
+
 gulp.task('styles', function() {
 	return gulp.src(__dirname + '/../src/less/App.less')
 		// .pipe(recess())
@@ -16,6 +19,9 @@ gulp.task('styles', function() {
 	 //        console.error(String(error));
   //       })
 		.pipe(less())
+		.pipe(uncss({
+            html: [__dirname + '/../src/**/*.html']
+        }))
 		.pipe(!!util.env.production ? minifyCss() : util.noop())
 		.pipe(concat('core.css'))
 		.pipe(gulp.dest(__dirname + '/../public/styles/'));
