@@ -15,9 +15,9 @@ angular.module('surfspotter', [
 		templateUrl: './modules/Surf/partials/Forecast.html',
 		controller: 'ForecastController as Forecast',
 		resolve: {
-			forecast: function (SurfService, $stateParams) {
+			forecast: ['$stateParams', 'SurfService', function ($stateParams, SurfService) {
 				return SurfService.getForecast($stateParams.spotId);
-			}
+			}]
 		}
 	})
 	.state('signIn', {

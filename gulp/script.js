@@ -37,7 +37,6 @@ gulp.task('script', function() {
             __dirname + '/../src/lib/angular/angular.js',
             __dirname + '/../src/lib/angular-ui-router/release/angular-ui-router.js',
             __dirname + '/../src/lib/angular-resource/angular-resource.js',
-            __dirname + '/../src/lib/angular-animate/angular-animate.js',
             __dirname + '/../src/lib/ngstorage/ngStorage.js'
         ];
     }
@@ -46,8 +45,8 @@ gulp.task('script', function() {
         .pipe(eslint(eslintConf))
         .pipe(eslint.format())
         .pipe(addsrc.prepend(angularJsFiles))
-        .pipe(!!util.env.production ? uglify() : util.noop())
         .pipe(concat('app.js'))
+        .pipe(!!util.env.production ? uglify() : util.noop())
 		.pipe(gulp.dest(__dirname + '/../public/js'))
 		.on('error', function (error) {
             console.error(String(error));
