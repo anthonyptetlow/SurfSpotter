@@ -4,19 +4,15 @@
 		<div class="row">
 
 
-			<div class="col-sm-3">
 				<a class="navbar-brand" data-ui-sref="app">
 					<div class="logo">
 						<i class="glyphicon glyphicon-cloud"></i> Surf Spotter
 					</div>
 				</a>
-			</div>
 
-			<div class="col-sm-6">
-				<div data-location-search=""></div>
-			</div>
 
-			<div class="col-sm-3">
+
+			<div class="nav-auth clearfix">
 				<ul data-ng-if="!NavigationBar.isUserAuthenticated()" class="nav navbar-nav navbar-right">
 			        <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
 					<li data-ui-sref-active="hide"><a data-ui-sref="signIn">Sign In</a></li>
@@ -34,6 +30,13 @@
 					</li>
 				</ul>
 			</div>
+
+
+<div class="nav-search">
+				<div data-location-search=""></div>
+			</div>
+
+
 		</div>
 	</div>
 </nav>
