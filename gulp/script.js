@@ -30,14 +30,18 @@ gulp.task('script', function() {
             __dirname + '/../src/lib/angular/angular.min.js',
             __dirname + '/../src/lib/angular-ui-router/release/angular-ui-router.min.js',
             __dirname + '/../src/lib/angular-resource/angular-resource.min.js',
-            __dirname + '/../src/lib/ngstorage/ngStorage.min.js'
+            __dirname + '/../src/lib/ngstorage/ngStorage.min.js',
+            __dirname + '/../src/lib/angulartics/dist/angulartics.min.js',
+            __dirname + '/../src/lib/angulartics-google-analytics/dist/angulartics-google-analytics.min.js'
         ];
     } else {
         angularJsFiles = [
             __dirname + '/../src/lib/angular/angular.js',
             __dirname + '/../src/lib/angular-ui-router/release/angular-ui-router.js',
             __dirname + '/../src/lib/angular-resource/angular-resource.js',
-            __dirname + '/../src/lib/ngstorage/ngStorage.js'
+            __dirname + '/../src/lib/ngstorage/ngStorage.js',
+            __dirname + '/../src/lib/angulartics/src/angulartics.js',
+            __dirname + '/../src/lib/angulartics-google-analytics/lib/angulartics-google-analytics.js'
         ];
     }
 

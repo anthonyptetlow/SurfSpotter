@@ -3,7 +3,10 @@
 angular.module('surfspotter', [
 	'ngResource',
 	'ngStorage',
-	'ui.router']).config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+	'ui.router',
+	'angulartics',
+	'angulartics.google.analytics'
+	]).config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
