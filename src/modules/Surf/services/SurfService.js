@@ -10,7 +10,7 @@ angular.module('surfspotter').service('SurfService', [
 					url: '/api/msw/locations/find/:partial',
 					isArray: true
 				},
-				getFavourite: {
+				getFavourites: {
 					method: 'GET',
 					url: '/api/msw/locations/favourite/',
 					isArray: true

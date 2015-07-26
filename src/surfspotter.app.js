@@ -32,5 +32,15 @@ angular.module('surfspotter', [
 		url: '/signUp',
 		templateUrl: './modules/Authentication/partials/SignUp.html',
 		controller: 'SignUpController as SignUp'
+	})
+	.state('favourites', {
+		url: '/favourites',
+		templateUrl: './modules/Surf/partials/Favourites.html',
+		controller: 'FavouritesController as Favourites',
+		resolve: {
+			favouritesList: ['SurfService', function (SurfService) {
+				return SurfService.getFavourites();
+			}]
+		}
 	});
 }]);
