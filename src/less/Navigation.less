@@ -32,10 +32,10 @@
 
 
 .nav-search {
-	width: 80%;
-	max-width: 400px;
+	max-width: 300px;
+	width: 100%;
 	display: block;
-	margin: 0 auto;
+	float: left;
 }
 
 
@@ -43,5 +43,41 @@
 	float: right;
 	margin-right: 10px;
 }
+li a.icon {
+ 	padding: 19px 0;
+ }
+.icon img {
+	height: 32px;
+}
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
 
+}
 
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	.navbar-nav {
+		margin: 0px;
+	}
+
+	.nav-search {
+		float: none;
+		max-width: initial;
+		padding: 0 20px;
+	}
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}
