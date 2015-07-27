@@ -1,27 +1,29 @@
 <div class="col-md-8 col-md-offset-2">
     <h3>Sign Up</h3>
 	<form class="form-signin" role="form" data-ng-submit="SignUp.register(SignUp.user)">
-		<span data-ng-bind="SignUp.error.user"></span>
 
-		<div class="form-group">
-		    <label for="inputEmail1">Email address</label>
-			<input type="email" class="form-control" data-ng-model="SignUp.user.email" id="inputEmail1" required>
-		</div>
-
-		<div class="form-group">
+		<div class="form-group" data-ng-class="{'has-error': SignUp.error.username}">
 		    <label for="inputUsername">Username</label>
-			<input type="text" class="form-control" data-ng-model="SignUp.user.username" id="inputUsername" required>
+			<input type="text" class="form-control" data-ng-model="SignUp.user.username" id="inputUsername">
+			<p class="help-block" data-ng-bind="SignUp.error.username"></p>
 		</div>
 
-		<div class="form-group">
+		<div class="form-group" data-ng-class="{'has-error': SignUp.error.email}">
+		    <label for="inputEmail1">Email address</label>
+			<input type="email" class="form-control" data-ng-model="SignUp.user.email" id="inputEmail1">
+			<p class="help-block" data-ng-bind="SignUp.error.email"></p>
+		</div>
+
+		<div class="form-group" data-ng-class="{'has-error': SignUp.error.password}">
 		    <label for="inputPassword">Password</label>
-			<input type="password" class="form-control" data-ng-model="SignUp.user.password" id="inputPassword" required>
+			<input type="password" class="form-control" data-ng-model="SignUp.user.password" id="inputPassword">
+			<p class="help-block" data-ng-bind="SignUp.error.password"></p>
 		</div>
 
-		<div class="form-group">
+		<div class="form-group" data-ng-class="{'has-error': SignUp.error.passwordCheck}">
 		    <label for="inputPassword">Confirm Password</label>
-			<span data-ng-bind="SignUp.error.password"></span>
-			<input type="password" class="form-control" data-ng-model="SignUp.user.confirmedPassword" id="confirmInputPassword" required>
+			<input type="password" class="form-control" data-ng-model="SignUp.user.confirmedPassword" id="confirmInputPassword">
+			<p class="help-block" data-ng-bind="SignUp.error.passwordCheck"></p>
 		</div>
 		<button type="submit" class="btn btn-default">Submit</button>
 	</form>

@@ -20,19 +20,14 @@ angular.module('surfspotter').controller('SignInController', [
 					switch(error.data.error){
 						case 'INCORRECT_PASSWORD':
 						case 'BAD_PASSWORD':
-							SignIn.error.password = 'Incorrect password';
+						case 'NO_PASSWORD':
+							SignIn.error.password = 'Please input a correct password';
 							break;
 						case 'USER_NOT_FOUND':
-							SignIn.error.username = 'Please input valid a username';
-							break;
-						case 'AUTH_FAIL':
-							break;
 						case 'NO_USERNAME':
 							SignIn.error.username = 'Please input a username';
 							break;
-						case 'NO_PASSWORD':
-							SignIn.error.password = 'Please input a password';
-							break;
+						case 'AUTH_FAIL':
 						default:
 							// NotificationService.addToNextState('Unable to login at this time', 'danger', 4000);
 							SignIn.error.username = 'Unable to login at this time';
