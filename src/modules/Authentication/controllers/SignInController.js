@@ -25,7 +25,7 @@ angular.module('surfspotter').controller('SignInController', [
 							break;
 						case 'USER_NOT_FOUND':
 						case 'NO_USERNAME':
-							SignIn.error.username = 'Please input a username';
+							SignIn.error.username = 'Please input a valid username';
 							break;
 						case 'AUTH_FAIL':
 						default:
