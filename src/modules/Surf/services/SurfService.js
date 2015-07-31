@@ -3,25 +3,26 @@ angular.module('surfspotter').service('SurfService', [
 	'$q',
 	'$resource',
 	function ($http, $q, $resource) {
-		var forecast = $resource('/api/msw/forecast/:spotId', {}),
-			location = $resource('/api/msw/locations', {}, {
+
+		var forecast = $resource('/api/surf/v0.0/forecast/:spotId', {}),
+			location = $resource('/api/surf/v0.1/locations', {}, {
 				find: {
 					method: 'GET',
-					url: '/api/msw/locations/find/:partial',
+					url: '/api/surf/v0.1/locations/find/:partial',
 					isArray: true
 				},
 				getFavourites: {
 					method: 'GET',
-					url: '/api/msw/locations/favourite/',
+					url: '/api/surf/v0.1/locations/favourite/',
 					isArray: true
 				},
 				setFavourite: {
 					method: 'POST',
-					url: '/api/msw/locations/favourite/'
+					url: '/api/surf/v0.1/locations/favourite/'
 				},
 				removeFavourite: {
 					method: 'DELETE',
-					url: '/api/msw/locations/favourite/'
+					url: '/api/surf/v0.1/locations/favourite/'
 				}
 			});
 
