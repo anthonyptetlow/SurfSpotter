@@ -1,20 +1,47 @@
+
 .locations-list {
-	margin-top: 10px;
 	text-align: center;
 	max-height: 10px;
-	transition: 1s max-height ease;
+	// transition: 0.5s all ease;
+	position: absolute;
+	background-color: @white;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
 
-.locations-list.expanded {
-	padding-bottom: 10px;
-	max-height: 10000px;
-}
-
-.location,
-.location:hover  {
-	margin: 5px;
+.location {
 	padding: 10px;
-	background: @midGrey;
 	color: @darkGrey;
-	display: inline-block;
+	display: block;
+}
+
+.location:hover  {
+	background-color: rgba(0, 0, 0, 0.02);
+}
+
+
+.location-search {
+
+	> .locations-list  {
+		position: absolute;
+		width: 300px;
+		overflow: scroll;
+	}
+
+
+	&.expanded {
+		> .locations-list {
+			max-height: 400px;
+			border-left: 1px solid @borderGray;
+			border-right: 1px solid @borderGray;
+			border-bottom: 1px solid @borderGray;
+			box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.1);
+
+		}
+
+		> input[type="text"] {
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+	}
 }
