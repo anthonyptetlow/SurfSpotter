@@ -14,7 +14,7 @@ angular.module('surfspotter', [
 		url: '/'
 	})
 	.state('forecast', {
-		url: '/forecast/:spotId',
+		url: '/forecast/:spotName/:spotId',
 		templateUrl: './modules/Surf/partials/Forecast.html',
 		controller: 'ForecastController as Forecast',
 		resolve: {

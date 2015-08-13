@@ -4,7 +4,7 @@
 
 	<div class="locations-list">
 		<a class="text-center location" data-ng-repeat="location in Location.locations | orderBy:'name'"
-		ui-sref="forecast({ spotId: {{location.id}} })" data-ng-bind="location.name"></a>
+		ui-sref="forecast({spotName: '{{location.name | spaceToDash}}', spotId: {{location.id}} })" data-ng-bind="location.name"></a>
 	</div>
 </div>
 
