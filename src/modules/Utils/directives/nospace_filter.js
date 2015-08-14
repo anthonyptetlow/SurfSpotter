@@ -6,6 +6,6 @@
  */
 angular.module('surfspotter').filter('spaceToDash', function () {
     return function (value) {
-        return (!value) ? '' : value..trim().replace(/ /g, '-');
+        return (!value) ? '' : value.trim().replace(/ /g, '-');
     };
 });
