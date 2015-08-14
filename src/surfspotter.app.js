@@ -6,7 +6,7 @@ angular.module('surfspotter', [
 	'ui.router',
 	'angulartics',
 	'angulartics.google.analytics'
-	]).config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+	]).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
@@ -43,4 +43,8 @@ angular.module('surfspotter', [
 			}]
 		}
 	});
+
+	// Enable html5 mode to remove the hashtag in urls
+    $locationProvider.html5Mode(true);
+
 }]);
