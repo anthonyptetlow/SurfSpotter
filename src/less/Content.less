@@ -14,37 +14,87 @@
 
 /* Forecast View */
 
-.forecast {
+.forecast-page {
 	margin-top: 20px;
 }
 
-.forecast h1 {
+.forecast-page h1 {
 	// margin: 0;
 }
 
 
-.forecast .actions {
+.forecast-page .actions {
 	float: right;
+	padding-top: 20px;
 }
 
 
 @media only screen and (max-width : 768px) {
-	.forecast .actions {
+	.forecast-page .actions {
 		float: none;
 		margin: 15px 0;
+		padding: 0;
 	}
 }
 
 
 @media only screen and (max-width : 480px) {
-	.forecast .actions > * {
+	.forecast-page .actions > * {
 		width: 100%;
 	}
-}
 
-
-.sidebar {
-	h1 {
-
+	.extra {
+		display: none;
 	}
 }
+
+
+.forecast {
+
+	padding: 10px;
+
+
+	.rating {
+		float: right;
+	}
+
+	.date {
+		font-size: 2rem;
+		display: inline-block;
+	}
+
+	.details {
+		max-height: 0;
+		overflow: hidden;
+		width: 100%;
+	}
+
+	.expander {
+		margin-left: 10px;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	.expander:after {
+		font-size: 2rem;
+		content: '+';
+		font-weight: bold;
+		padding: 0px 8px;
+		vertical-align: middle;
+	}
+
+
+
+	&.expanded {
+		// background-color: green;
+		.expander:after {
+			content: '-';
+			padding: 0px 10px;
+		}
+
+		.details {
+			max-height: 500px;
+		}
+	}
+}
+
