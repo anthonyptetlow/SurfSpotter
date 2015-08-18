@@ -70,16 +70,32 @@
 
 		table {
 			width: 100%;
-			margin: 20px 0;
+			margin: 20px 0 0 0;
 		}
 	}
 
-	&:hover {
-		cursor: pointer;
+	.expander {
+		margin-left: 10px;
+		&:hover {
+			cursor: pointer;
+		}
 	}
+	.expander:after {
+		font-size: 2rem;
+		content: '+';
+		font-weight: bold;
+		padding: 0px 8px;
+		vertical-align: middle;
+	}
+
+
 
 	&.expanded {
 		// background-color: green;
+		.expander:after {
+			content: '-';
+			padding: 0px 10px;
+		}
 
 		.details {
 			max-height: 500px;

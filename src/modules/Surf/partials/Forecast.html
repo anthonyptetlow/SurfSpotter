@@ -22,16 +22,20 @@
 		<div class="col-sm-12">
 
 			<div class="card">
-				<div class="forecast section" ng-class='{expanded: day.expanded }' data-ng-click="day.expanded = !day.expanded;" data-ng-repeat="day in Forecast.forecast">
+				<div class="forecast section" ng-class='{expanded: day.expanded }' data-ng-repeat="day in Forecast.forecast">
 
 							<div class="date">
 								<span data-ng-bind="$first ? 'Today' : (day.date | date:'EEE')">Today</span>
 								<span class="extra" data-ng-bind="day.date | date:'dd/MM/yyyy'"></span>
 							</div>
-							<!-- <div class="date" data-ng-if="!$first" data-ng-bind="day.date | date:'EEE dd/MM/yyyy'"></div> -->
+
+							<span class="expander pull-right" data-ng-click="day.expanded = !day.expanded;"></span>
 							<div class="rating" star-rating ng-model="day.weather.rating"></div>
 
+
 							<div class="details animate-slide">
+
+
 
 
 								<table class="table">
