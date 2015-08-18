@@ -1,13 +1,13 @@
-<div class="forecast">
+<div class="forecast-page">
 
 	<div class="row">
-		<div class="col-sm-5">
+		<div class="col-sm-8">
 			<h1>
 				<span data-ng-bind="Forecast.place.name"></span>
 
 			</h1>
 		</div>
-		<div class="col-sm-3">
+		<div class="col-sm-4">
 			<div class="actions">
 				<button class="btn btn-default" data-ng-if="Auth.isSignedin()" data-ng-click="Forecast.setFavorite(!Forecast.place.isFavourite)">
 					<span data-ng-if="Forecast.place.isFavourite">Remove from Favorites</span>
@@ -22,39 +22,43 @@
 		<div class="col-sm-12">
 
 			<div class="card">
+				<div class="forecast section" ng-class='{expanded: day.expanded }' data-ng-click="day.expanded = !day.expanded;" data-ng-repeat="day in Forecast.forecast">
 
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th></th>
-							<th>Rating</th>
-							<th>Swell Height</th>
-							<th>Swell Period</th>
-							<th>Wind Speed</th>
-							<th>Wind Direction</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr data-ng-repeat="day in Forecast.forecast">
-							<th data-ng-bind="day.date | date:'EEE'"></th>
-							<td>
-								<div star-rating ng-model="day.weather.rating"></div>
-							</td>
-							<!-- <td data-ng-bind="location.stars"> -->
-								<!-- <span class="glyphicon glyphicon-star star-filled"></span>
-								<span class="glyphicon glyphicon-star star-faded"></span>
-								<span class="glyphicon glyphicon-star star-faded"></span>
-								<span class="glyphicon glyphicon-star star-faded"></span>
-								<span class="glyphicon glyphicon-star star-faded"></span> -->
-							<!-- </td> -->
-							<td><span data-ng-bind="day.weather.swell.height"></span>m</td>
-							<td><span data-ng-bind="day.weather.swell.period"></span>s</td>
-							<td><span data-ng-bind="day.weather.wind.speed"></span>mph</td>
-							<td data-ng-bind="day.weather.wind.direction"></td>
-							<!-- <td><span data-ng-bind="location.distance"></span>m</td> -->
-						</tr>
-					</tbody>
-				</table>
+							<div class="date">
+								<span data-ng-bind="$first ? 'Today' : (day.date | date:'EEE')">Today</span>
+								<span class="extra" data-ng-bind="day.date | date:'dd/MM/yyyy'"></span>
+							</div>
+							<!-- <div class="date" data-ng-if="!$first" data-ng-bind="day.date | date:'EEE dd/MM/yyyy'"></div> -->
+							<div class="rating" star-rating ng-model="day.weather.rating"></div>
+
+							<div class="details animate-slide">
+
+
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Swell Height</th>
+											<th>Swell Period</th>
+											<th>Wind Speed</th>
+											<th>Wind Direction</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><span data-ng-bind="day.weather.swell.height"></span>m</td>
+											<td><span data-ng-bind="day.weather.swell.period"></span>s</td>
+											<td><span data-ng-bind="day.weather.wind.speed"></span>mph</td>
+											<td data-ng-bind="day.weather.wind.direction"></td>
+										</tr>
+									</tbody>
+								</table>
+
+								<!-- <div>Swell Height: <span data-ng-bind="day.weather.swell.height"></span>m</div>
+								<div>Swell Period: <span data-ng-bind="day.weather.swell.period"></span>s</div>
+								<div>Wind Speed: <span data-ng-bind="day.weather.wind.speed"></span>mph</div>
+								<div>Wind Direction: <span data-ng-bind="day.weather.wind.direction"></span></div> -->
+							</div>
+				</div>
 			</div>
 		</div>
 		<!-- <div class="col-sm-4">
