@@ -7,11 +7,10 @@ angular.module('surfspotter').directive('starRating', [ function(){
         '  </li>' +
         '</ul>',
       scope: {
-        ratingValue: '=ngModel',
-
+        ratingValue: '=ngModel'
       },
-      link: function(scope, element, attributes) {
-        if (scope.max == undefined) {
+      link: function(scope) {
+        if (scope.max === undefined) {
           scope.max = 5;
         }
         scope.stars = [];
@@ -22,10 +21,4 @@ angular.module('surfspotter').directive('starRating', [ function(){
         }
       }
     };
-
-
-
-
 }]);
-
-
