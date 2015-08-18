@@ -1,0 +1,84 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+@gridWidth: 980;
+@gutterWidth: 10;
+@columnCount: 12;
+
+
+* {
+	box-sizing: border-box;
+}
+
+/* Attribute selector */
+[class*='column-'] {
+  float: left;
+  padding: @gutterWidth * 1px;
+  background-color: blue;
+  height: 20px;
+}
+
+/* Floats last ".bit-" to the right */
+[class*='column-']:last-of-type {
+  padding-right: @gutterWidth * 1px;
+  float: right;
+}
+
+.container {
+	height: 200px;
+	display: block;
+	margin: 0 auto;
+	width: @gridWidth * 1px;
+	background-color: green;
+}
+
+.yellow {
+	height: 10px;
+	background-color: yellow;
+}
+
+
+
+.generate-columns(@columnCount);
+
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+
+  .column-@{i} {
+  	width: ((@gridWidth) / @i) * 1px;
+    // width: (@i * 100% / @n);
+  }
+  .generate-columns(@n, (@i + 1));
+}
+
+
+@media only screen and (max-width: 980px) {
+	.container {
+		width: 100%;
+	}
+
+	[class*='column-'] {
+		width: 100%;
+	}
+
+}
+
+
