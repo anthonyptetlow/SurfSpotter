@@ -7,7 +7,8 @@ angular.module('surfspotter', [
 	'angulartics',
 	'angulartics.google.analytics'
 	]).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
-	$urlRouterProvider.otherwise('/');
+
+	$urlRouterProvider.otherwise('/404/');
 
 	$stateProvider
 	.state('app', {
@@ -42,6 +43,9 @@ angular.module('surfspotter', [
 				return SurfService.getFavourites();
 			}]
 		}
+	}).state('404', {
+		url: '/404/',
+		templateUrl: 'modules/Utils/partials/404.html'
 	});
 
 	// Enable html5 mode to remove the hashtag in urls
