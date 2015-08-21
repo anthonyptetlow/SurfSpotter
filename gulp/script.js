@@ -3,6 +3,8 @@ var gulp = require('gulp'),
 	eslint = require('gulp-eslint'),
     uglify = require('gulp-uglify');
     util = require('gulp-util'),
+    minifyHTML = require('gulp-minify-html'),
+    htmlToNg = require('gulp-ng-html2js'),
     addsrc = require('gulp-add-src');
 
 
@@ -45,7 +47,13 @@ gulp.task('script', function() {
         ];
     }
 
-	return gulp.src([__dirname + '/../src/**.*.app.js', __dirname + '/../src/**/*.js', '!' + __dirname + '/../src/lib/**/*.js'])
+	return gulp.src([__dirname + '/../src/**/partials/**/*.html', '!' + __dirname + '/../src/lib/**/*.html'])
+        .pipe(!!util.env.production ? minifyHTML() : util.noop())
+        .pipe(htmlToNg({
+            moduleName: "surfspotter",
+            declareModule: false
+        }))
+        .pipe(addsrc.prepend([__dirname + '/../src/**.*.app.js', __dirname + '/../src/**/*.js', '!' + __dirname + '/../src/lib/**/*.js']))
         .pipe(eslint(eslintConf))
         .pipe(eslint.format())
         .pipe(addsrc.prepend(angularJsFiles))

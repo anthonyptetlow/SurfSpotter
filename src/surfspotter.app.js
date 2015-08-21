@@ -15,7 +15,7 @@ angular.module('surfspotter', [
 	})
 	.state('forecast', {
 		url: '/forecast/:spotName/:spotId',
-		templateUrl: './modules/Surf/partials/Forecast.html',
+		templateUrl: 'modules/Surf/partials/Forecast.html',
 		controller: 'ForecastController as Forecast',
 		resolve: {
 			forecast: ['$stateParams', 'SurfService', function ($stateParams, SurfService) {
@@ -25,17 +25,17 @@ angular.module('surfspotter', [
 	})
 	.state('signIn', {
 		url: '/signIn',
-		templateUrl: './modules/Authentication/partials/SignIn.html',
+		templateUrl: 'modules/Authentication/partials/SignIn.html',
 		controller: 'SignInController as SignIn'
 	})
 	.state('signUp', {
 		url: '/signUp',
-		templateUrl: './modules/Authentication/partials/SignUp.html',
+		templateUrl: 'modules/Authentication/partials/SignUp.html',
 		controller: 'SignUpController as SignUp'
 	})
 	.state('favourites', {
 		url: '/favourites',
-		templateUrl: './modules/Surf/partials/Favourites.html',
+		templateUrl: 'modules/Surf/partials/Favourites.html',
 		controller: 'FavouritesController as Favourites',
 		resolve: {
 			favouritesList: ['SurfService', function (SurfService) {

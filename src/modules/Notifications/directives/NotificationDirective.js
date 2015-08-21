@@ -19,7 +19,7 @@ angular.module('surfspotter').directive('notification', [
 		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
 		// restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
 		// template: '',
-		templateUrl: '/modules/Notifications/partials/Notification.html',
+		templateUrl: 'modules/Notifications/partials/Notification.html',
 		// replace: true,
 		// transclude: true,
 		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
