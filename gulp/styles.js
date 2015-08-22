@@ -7,8 +7,7 @@ var gulp = require('gulp'),
 	postcss      = require('gulp-postcss'),
     autoprefixer = require('autoprefixer-core');
 
-
-// var uncss = require('gulp-uncss');
+var cssshrink = require('gulp-cssshrink');
 
 
 gulp.task('styles', function() {
@@ -22,10 +21,8 @@ gulp.task('styles', function() {
 	 //        console.error(String(error));
   //       })
 		.pipe(less())
-		// .pipe(uncss({
-        //     html: [__dirname + '/../src/**/*.html']
-        // }))
         .pipe(postcss([ autoprefixer({ browsers: ['> 5%'] }) ]))
+        .pipe(cssshrink())
 		.pipe(!!util.env.production ? minifyCss() : util.noop())
 		.pipe(concat('core.css'))
 		.pipe(gulp.dest(__dirname + '/../public/styles/'));
