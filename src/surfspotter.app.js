@@ -12,12 +12,21 @@ angular.module('surfspotter', [
 
 	$stateProvider
 	.state('app', {
-		url: '/'
+		url: '/',
+		views: {
+			'content': {
+				templateUrl: 'Home.html'
+			}
+		}
 	})
 	.state('forecast', {
 		url: '/forecast/:spotName/:spotId',
-		templateUrl: 'modules/Surf/partials/Forecast.html',
-		controller: 'ForecastController as Forecast',
+		views: {
+			'content': {
+				templateUrl: 'modules/Surf/partials/Forecast.html',
+				controller: 'ForecastController as Forecast'
+			}
+		},
 		resolve: {
 			forecast: ['$stateParams', 'SurfService', function ($stateParams, SurfService) {
 				return SurfService.getForecast($stateParams.spotId);
@@ -26,18 +35,30 @@ angular.module('surfspotter', [
 	})
 	.state('signIn', {
 		url: '/signIn',
-		templateUrl: 'modules/Authentication/partials/SignIn.html',
-		controller: 'SignInController as SignIn'
+		views: {
+			'content': {
+				templateUrl: 'modules/Authentication/partials/SignIn.html',
+				controller: 'SignInController as SignIn'
+			}
+		}
 	})
 	.state('signUp', {
 		url: '/signUp',
-		templateUrl: 'modules/Authentication/partials/SignUp.html',
-		controller: 'SignUpController as SignUp'
+		views: {
+			'content': {
+				templateUrl: 'modules/Authentication/partials/SignUp.html',
+				controller: 'SignUpController as SignUp'
+			}
+		}
 	})
 	.state('favourites', {
 		url: '/favourites',
-		templateUrl: 'modules/Surf/partials/Favourites.html',
-		controller: 'FavouritesController as Favourites',
+		views: {
+			'content': {
+				templateUrl: 'modules/Surf/partials/Favourites.html',
+				controller: 'FavouritesController as Favourites'
+			}
+		},
 		resolve: {
 			favouritesList: ['SurfService', function (SurfService) {
 				return SurfService.getFavourites();
@@ -45,7 +66,11 @@ angular.module('surfspotter', [
 		}
 	}).state('404', {
 		url: '/404/',
-		templateUrl: 'modules/Utils/partials/404.html'
+		views: {
+			'content': {
+				templateUrl: 'modules/Utils/partials/404.html'
+			}
+		}
 	});
 
 	// Enable html5 mode to remove the hashtag in urls
