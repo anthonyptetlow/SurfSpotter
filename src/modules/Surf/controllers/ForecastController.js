@@ -4,8 +4,7 @@ angular.module('surfspotter').controller('ForecastController', [
 	'forecast',
 	function ($state, SurfService, forecast) {
 		var Forecast = this;
-		Forecast.place = forecast.place;
-		Forecast.forecast = forecast.forecast;
+		angular.extend(Forecast, forecast);
 
 		Forecast.setFavorite = function (isFavourite) {
 			if (isFavourite) {

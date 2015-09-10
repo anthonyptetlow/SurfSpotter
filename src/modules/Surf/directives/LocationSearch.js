@@ -5,8 +5,8 @@ angular.module('surfspotter').directive('locationSearch', [ function(){
 		// priority: 1,
 		// terminal: true,
 		scope: {}, // {} = isolate, true = child, false/undefined = no change
-		controller: 'LocationController',
-		controllerAs: 'Location',
+		controller: 'LocationsController',
+		controllerAs: 'Locations',
 		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
 		restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
 		// template: '',

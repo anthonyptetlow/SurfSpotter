@@ -33,6 +33,20 @@ angular.module('surfspotter', [
 			}]
 		}
 	})
+	.state('location', {
+		url: '/location/:spotName/:spotId',
+		views: {
+			'content': {
+				templateUrl: 'modules/Surf/partials/Location.html',
+				controller: 'LocationController as Location'
+			}
+		},
+		resolve: {
+			location: ['$stateParams', 'SurfService', function ($stateParams, SurfService) {
+				return SurfService.getLocation($stateParams.spotId);
+			}]
+		}
+	})
 	.state('signIn', {
 		url: '/signIn',
 		views: {
