@@ -20,7 +20,7 @@ angular.module('surfspotter', [
 		}
 	})
 	.state('forecast', {
-		url: '/forecast/:spotName/:spotId',
+		url: '/forecast/:spotName/:locationId',
 		views: {
 			'content': {
 				templateUrl: 'modules/Surf/partials/Forecast.html',
@@ -29,7 +29,7 @@ angular.module('surfspotter', [
 		},
 		resolve: {
 			forecast: ['$stateParams', 'SurfService', function ($stateParams, SurfService) {
-				return SurfService.getForecast($stateParams.spotId);
+				return SurfService.getForecast($stateParams.locationId);
 			}]
 		}
 	})

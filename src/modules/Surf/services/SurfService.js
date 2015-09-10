@@ -4,7 +4,7 @@ angular.module('surfspotter').service('SurfService', [
 	'$resource',
 	function ($http, $q, $resource) {
 		var surfVersion = 'v0.2',
-		// var forecast = $resource('/api/surf/v0.2/forecast/:spotId', {}),
+			forecast = $resource('/api/surf/v0.2/forecast/:locationId', {}),
 			location = $resource('/api/surf/' + surfVersion + '/locations/:locationId', {}, {
 				find: {
 					method: 'GET',
@@ -26,9 +26,9 @@ angular.module('surfspotter').service('SurfService', [
 				}
 			});
 
-		// function getForecast(spotId) {
-		// 	return forecast.get({spotId: spotId}).$promise;
-		// }
+		function getForecast(locationId) {
+			return forecast.get({locationId: locationId}).$promise;
+		}
 
 		function findLocations(partial) {
 			return location.find({partial: partial}).$promise;
@@ -48,7 +48,7 @@ angular.module('surfspotter').service('SurfService', [
 			return location.removeFavourite({locationId: locationId}).$promise;
 		}
 		return {
-			// getForecast: getForecast,
+			getForecast: getForecast,
 			findLocations: findLocations,
 			getFavourites: getFavourites,
 			saveFavourite: saveFavourite,
