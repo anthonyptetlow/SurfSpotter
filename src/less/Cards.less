@@ -17,15 +17,19 @@
 		border-bottom: 1px solid #f0f0f0;
 	}
 
-	.horizontal-section:not(:last-child) {
-		border-right: 1px solid #f0f0f0;
+	.horizontal-section {
+		float: left;
+		width: 50%;
+
+		&:last-child {
+			padding-left: 10px;
+		}
+
+		&:not(:last-child) {
+			border-right: 1px solid #f0f0f0;
+		}
 	}
 }
-
-
-
-
-
 
 
 @media only screen and (max-width : 768px) {

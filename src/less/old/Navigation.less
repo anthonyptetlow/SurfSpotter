@@ -1,0 +1,88 @@
+.navbar-default {
+	background-color: @white;
+}
+
+.navbar-brand.logo {
+	padding: 25px;
+}
+.navbar-nav > li > a {
+	padding: 25px 0;
+	margin: 0 20px;
+}
+
+.navbar-right {
+	display: inline-block;
+	float: right;
+	> li {
+		float: right;
+	}
+}
+
+.dropdown-menu {
+	min-width: initial;
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+
+
+.nav-search {
+	max-width: 300px;
+	width: 100%;
+	display: block;
+	float: left;
+	margin: 18px 0px 0px 0px;
+	input, input:focus, inout:active, input:hover {
+		border-radius: 0;
+		border-color: rgba(0, 0, 0, 0.05);
+		background-color: rgba(0, 0, 0, 0.05);
+		box-shadow: none;
+	}
+
+}
+
+
+.nav-auth {
+	float: right;
+	margin-right: 10px;
+}
+li a.icon {
+ 	padding: 23px 0;
+ }
+.icon img {
+	height: 24px;
+}
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	.navbar-nav {
+		margin: 0px;
+	}
+
+	.nav-search {
+		float: none;
+		max-width: initial;
+		padding: 0 20px;
+		margin: 18px 0px 18px 0px;
+	}
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}

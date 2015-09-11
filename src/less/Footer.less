@@ -1,10 +1,15 @@
 .footer {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	padding: 10px;
 	text-align: center;
 	width: 100%;
 	background-color: @white;
-	border-top: 1px solid #e7e7e7;
+	border-top: 1px solid @border-gray;
 }
 
+.footer_link {
+	&:hover {
+		text-decoration: underline;
+	}
+}

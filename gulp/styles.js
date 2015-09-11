@@ -22,8 +22,8 @@ gulp.task('styles', function() {
   //       })
 		.pipe(less())
         .pipe(postcss([ autoprefixer({ browsers: ['> 5%'] }) ]))
-        .pipe(cssshrink())
-		.pipe(!!util.env.production ? minifyCss() : util.noop())
+        // .pipe(cssshrink())
+		// .pipe(!!util.env.production ? minifyCss() : util.noop())
 		.pipe(concat('core.css'))
 		.pipe(gulp.dest(__dirname + '/../public/styles/'));
 

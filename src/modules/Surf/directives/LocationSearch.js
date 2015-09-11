@@ -11,7 +11,7 @@ angular.module('surfspotter').directive('locationSearch', [ function(){
 		restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
 		// template: '',
 		templateUrl: 'modules/Surf/partials/Locations.html',
-		// replace: true,
+		replace: true,
 		// transclude: true,
 		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
 		link: function() {

@@ -1,36 +1,18 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar">
 	<div class="container">
 
-		<div class="row">
+		<a class="navbar_logo" data-ui-sref="app">Surf Spotter</a>
 
+		<div data-location-search></div>
 
-			<a class="navbar-brand logo" data-ui-sref="app">Surf Spotter</a>
+		<ul data-ng-if="!NavigationBar.isUserAuthenticated()" class="navbar_group pull-right">
+			<li class="navbar_item" data-ui-sref-active="hide"><a data-ui-sref="signIn">Sign In</a></li>
+		    <li class="navbar_item" data-ui-sref-active="hide"><a data-ui-sref="signUp">Sign Up</a></li>
+		</ul>
 
-
-
-			<div class="nav-auth clearfix">
-				<ul data-ng-if="!NavigationBar.isUserAuthenticated()" class="nav navbar-nav navbar-right">
-			        <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
-					<li data-ui-sref-active="hide"><a data-ui-sref="signIn">Sign In</a></li>
-			        <li data-ui-sref-active="hide"><a data-ui-sref="signUp">Sign Up</a></li>
-				</ul>
-				<ul data-ng-if="NavigationBar.isUserAuthenticated()" class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-							<span data-ng-bind="NavigationBar.getUser().username"></span>
-							<span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-					        <li><a data-ng-click="NavigationBar.signOut()">Sign Out</a></li>
-						</ul>
-					</li>
-					<li><a class="icon star twice" data-ui-sref="favourites"></a></li>
-				</ul>
-			</div>
-
-
-			<div data-location-search></div>
-
-
-		</div>
+		<ul data-ng-if="NavigationBar.isUserAuthenticated()" class="navbar_group pull-right">
+			<li class="navbar_item"><a class="icon star" data-ui-sref="favourites"></a></li>
+	        <li class="navbar_item"><a data-ng-click="NavigationBar.signOut()"><span data-ng-bind="NavigationBar.getUser().username"></span> (Sign Out)</a></li>
+		</ul>
 	</div>
 </nav>

@@ -1,70 +1,53 @@
-<div class="forecast-page">
-
+<div class="grid">
 	<div class="row">
-		<div class="col-sm-8">
-			<h1>
-				<span data-ng-bind="Forecast.location.name"></span>
+		<div class="column-6">
 
-			</h1>
+			<h1 data-ng-bind="Forecast.location.name"></h1>
 		</div>
-		<div class="col-sm-4">
-			<!-- <div class="actions">
-				<button class="btn btn-default" data-ng-if="Auth.isSignedin()" data-ng-click="Forecast.setFavorite(!Forecast.location.isFavourite)">
-					<span data-ng-if="Forecast.location.isFavourite">Remove from Favorites</span>
-					<span data-ng-if="!Forecast.location.isFavourite">Save to Favorites</span>
-				</button>
-			</div> -->
-		</div>
+	<!-- <div class="actions">
+		<button class="btn btn-default" data-ng-if="Auth.isSignedin()" data-ng-click="Forecast.setFavorite(!Forecast.location.isFavourite)">
+			<span data-ng-if="Forecast.location.isFavourite">Remove from Favorites</span>
+			<span data-ng-if="!Forecast.location.isFavourite">Save to Favorites</span>
+		</button>
+	</div> -->
 	</div>
-
-
 	<div class="row">
-		<div class="col-sm-12">
-
+		<div class="column-4">
 			<div class="card">
 				<div class="forecast section" ng-class='{expanded: day.expanded }' data-ng-repeat="day in Forecast.forecast">
 
-						<div class="date">
-							<span data-ng-bind="$first ? 'Today' : (day.date | date:'EEE')">Today</span>
-							<span class="extra" data-ng-bind="day.date | date:'dd/MM/yyyy'"></span>
+					<div class="date">
+						<span data-ng-bind="$first ? 'Today' : (day.date | date:'EEE')">Today</span>
+						<span class="extra" data-ng-bind="day.date | date:'dd/MM/yyyy'"></span>
+					</div>
+
+					<span class="expander pull-right" data-ng-click="day.expanded = !day.expanded;"></span>
+					<!-- <div class="rating" star-rating ng-model="day.weather.rating"></div> -->
+
+
+					<div class="details animate-slide">
+						<div class="horizontal-section">
+							<h5>Swell:</h5>
+							<div class="">Height: <span data-ng-bind="day.hourly[0].swell.height"></span>m</div>
+							<div class="">Period: <span data-ng-bind="day.hourly[0].swell.period"></span>s</div>
 						</div>
 
-						<span class="expander pull-right" data-ng-click="day.expanded = !day.expanded;"></span>
-						<!-- <div class="rating" star-rating ng-model="day.weather.rating"></div> -->
-
-
-						<div class="details animate-slide">
-							<div class="row">
-								<div class="col-sm-6 horizontal-section">
-									<h5>Swell:</h5>
-									<div class="row">
-										<div class="col-xs-6">Height: <span data-ng-bind="day.hourly[0].swell.height"></span>m</div>
-										<div class="col-xs-6">Period: <span data-ng-bind="day.hourly[0].swell.period"></span>s</div>
-									</div>
-
-								</div>
-								<div class="col-sm-6 horizontal-section">
-									<h5>Wind:</h5>
-									<div class="row">
-
-										<div class="col-xs-6">Speed: <span data-ng-bind="day.hourly[0].wind.speed"></span>mph</div>
-										<div class="col-xs-6">Direction: <span data-ng-bind="day.hourly[0].wind.direction"></span>&deg</div>
-									</div>
-								</div>
-							</div>
+						<div class="horizontal-section">
+							<h5>Wind:</h5>
+							<div class="">Speed: <span data-ng-bind="day.hourly[0].wind.speed"></span>kmph</div>
+							<div class="">Direction: <span data-ng-bind="day.hourly[0].wind.direction"></span>&deg</div>
 						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		<!-- <div class="col-sm-4">
-			<div class="card">
-				<div class="img"></div>
-				<div class="section clearfix">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, aliquam reiciendis accusamus est. Nostrum soluta eligendi recusandae ipsam commodi, ad, praesentium, aut totam architecto asperiores ipsum est nihil libero id.
-					<a class="btn btn-default pull-right">More Info</a>
-				</div>
+
+		<div class="column-2">
+			<div class="card" style="padding: 10px;">
+				<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio explicabo dolorum cum architecto voluptatibus perferendis perspiciatis doloremque impedit, iure. Sapiente possimus dicta eum recusandae dolor blanditiis quisquam id tempore unde.
+				</p>
 			</div>
-		</div> -->
+		</div>
 	</div>
 </div>
-
