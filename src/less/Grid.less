@@ -16,6 +16,7 @@
 }
 
 .grid, .container {
+	.clearfix();
 	display: block;
 	margin: 0 auto;
 	width: 100%;
@@ -41,6 +42,7 @@
 
 @media only screen and (min-width: @mobileWidth) {
 	.generate-columns(@columnCount);
+	.generate-offset(@columnCount);
 }
 
 .generate-columns(@n, @i: 1) when (@i =< @n) {
@@ -49,5 +51,15 @@
 		width: ((((@gridWidth) / @n) * @i) / @gridWidth) * 100%;
 	}
   .generate-columns(@n, (@i + 1));
+}
+
+
+
+.generate-offset(@n, @i: 1) when (@i =< @n) {
+
+	.offset-@{i} {
+		margin-left: ((((@gridWidth) / @n) * @i) / @gridWidth) * 100%;
+	}
+  .generate-offset(@n, (@i + 1));
 }
 

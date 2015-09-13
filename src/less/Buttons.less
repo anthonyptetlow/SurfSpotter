@@ -1,5 +1,6 @@
 .btn {
 	background-color: @btn-bg;
+	border-radius: 0;
 	padding: 10px;
 	color: @white;
 	border: none;
@@ -18,3 +19,12 @@
 	}
 }
 
+.btn-link {
+	background-color: transparent;
+	color: @btn-bg;
+
+	&:hover {
+		text-decoration: underline;
+		background-color: transparent;
+	}
+}

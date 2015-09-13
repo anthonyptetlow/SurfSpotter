@@ -1,23 +1,26 @@
 <div class="grid">
-	<div class="column-6">
-
+	<div class="column-2 offset-2">
 	    <h3>Sign In</h3>
-		<form class="form-signin" role="form" data-ng-submit="SignIn.authenticate(SignIn.username, SignIn.password)">
 
-			<div class="form-group" data-ng-class="{'has-error': SignIn.error.username}">
-			    <label for="inputUsername">Username</label>
-				<input type="username" class="form-control" data-ng-model="SignIn.username" name="inputUsername" id="inputEmail" required>
-			    <p class="help-block" data-ng-bind="SignIn.error.username"></p>
+		<form class="form" role="form" data-ng-submit="SignIn.authenticate(SignIn.username, SignIn.password)">
 
+			<div class="form__input__group" data-ng-class="{'has-error': SignIn.error.username}">
+			    <label class="form__label" for="inputUsername">Username:</label>
+
+				<input class="form__input" type="text" data-ng-model="SignIn.username" name="inputUsername" id="inputEmail" required>
+
+			    <p class="form__input__help" data-ng-bind="SignIn.error.username"></p>
 			</div>
 
-			<div class="form-group" data-ng-class="{'has-error': SignIn.error.password}">
-			    <label for="inputPassword">Password</label>
-				<input type="password" class="form-control" data-ng-model="SignIn.password" name="inputPassword" id="inputPassword" required>
-			    <p class="help-block" data-ng-bind="SignIn.error.password"></p>
+			<div class="form__input__group" data-ng-class="{'has-error': SignIn.error.password}">
+			    <label class="form__label" for="inputPassword">Password:</label>
 
+				<input class="form__input" type="password" data-ng-model="SignIn.password" name="inputPassword" id="inputPassword" required>
+
+			    <p class="form__input__help" data-ng-bind="SignIn.error.password"></p>
 			</div>
-			<button type="submit" class="btn btn-default">Submit</button>
+
+			<input type="submit" class="btn form__input--submit"></input>
 		</form>
 	</div>
 </div>

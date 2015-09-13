@@ -1,9 +1,24 @@
-<div class="col-sm-6">
-	<h1 data-ng-bind="Location.name"></h1>
-	<p>
-		Coordinates: (<span data-ng-bind="Location.coordinate.latitude"></span>, <span data-ng-bind="Location.coordinate.longitude"></span>)
-	</p>
+<div class="grid">
+	<div class="row">
+		<div class="column-6">
+			<h1 data-ng-bind="Location.name"></h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="column-3">
+			<p>
+				Coordinates: (<span data-ng-bind="Location.coordinate.latitude"></span>, <span data-ng-bind="Location.coordinate.longitude"></span>)
+			</p>
+		</div>
+
+		<div class="column-3">
+			<p data-ng-if="Location.image">Image: <span data-ng-bind="Location.image"></span></p>
+			<img class="img-responsive" data-ng-src="{{Location.image}}" alt="" onerror="this.style.display='none';">
+		</div>
+	</div>
+
 </div>
-<div class="col-sm-6">
-	<img class="img-responsive" data-ng-src="{{Location.image}}" alt="">
-</div>
+
+
+	<!-- {{Location | json}} -->
+

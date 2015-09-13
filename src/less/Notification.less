@@ -1,10 +1,6 @@
 .alert {
 	padding: 10px 25px 10px 15px;
 	position: relative;
-
-	&:not(:last-child) {
-		border-bottom: 1px solid;
-	}
 }
 
 .alert__close {
@@ -41,13 +37,22 @@
 .alert--variant(@type, @color) {
 	.alert--@{type} {
 		background-color: lighten(@color, 45%);
-		border-color: lighten(@color, 10%);
+		&:not(:last-child) {
+			border-bottom: 1px solid lighten(@color, 10%);
+		}
 
 		.alert__close:before,
 		.alert__close:after {
 			background-color: lighten(@color, 10%);
 		}
 	}
+
+	@media only screen and (min-width: @mobileWidth) {
+		.alert--@{type} {
+			border: 1px solid lighten(@color, 10%);
+		}
+	}
+
 }
 
 .alert--variant(success, @alert-green);
@@ -65,10 +70,5 @@
 	    float: right;
 	    margin: 10px;
 	    width: 300px;
-	    border: 1px solid;
 	}
-
-	.alert--variant(success, @alert-green);
-	.alert--variant(danger, @alert-red);
-
 }

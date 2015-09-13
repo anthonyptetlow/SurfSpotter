@@ -7,12 +7,12 @@ angular.module('surfspotter').controller('FavouritesController', [
 		var Favourites = this;
 		Favourites.list = favouritesList;
 
-		Favourites.remove = function (id) {
-			SurfService.removeFavourite(id).then(function () {
-                NotificationService.addToNextState('Location removed from favorites', 'success', 2000);
+		Favourites.remove = function (location) {
+			SurfService.removeFavourite(location._id).then(function () {
+                NotificationService.addToNextState(location.name + ' removed from favorites', 'success', 2000);
 				$state.reload();
 			}, function() {
-                NotificationService.addToNextState('Unable to remove location from favourites', 'danger', 2000);
+                NotificationService.addToNextState('Unable to remove ' + location.name + ' from favourites', 'danger', 2000);
 				$state.reload();
 			});
 		};
