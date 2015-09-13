@@ -1,38 +1,38 @@
 <div class="grid">
 	<div class="row">
 		<div class="column-6">
-
 			<h1 data-ng-bind="Forecast.location.name"></h1>
 		</div>
-	<!-- <div class="actions">
-		<button class="btn btn-default" data-ng-if="Auth.isSignedin()" data-ng-click="Forecast.setFavorite(!Forecast.location.isFavourite)">
-			<span data-ng-if="Forecast.location.isFavourite">Remove from Favorites</span>
-			<span data-ng-if="!Forecast.location.isFavourite">Save to Favorites</span>
-		</button>
-	</div> -->
+		<div class="column-6">
+			<div class="actions">
+				<button class="btn btn-default" data-ng-if="Auth.isSignedin()" data-ng-click="Forecast.setFavorite(!Forecast.location.isFavourite)">
+					<span data-ng-if="Forecast.location.isFavourite">Remove from Favorites</span>
+					<span data-ng-if="!Forecast.location.isFavourite">Save to Favorites</span>
+				</button>
+			</div>
+		</div>
 	</div>
 	<div class="row">
 		<div class="column-4">
 			<div class="card">
-				<div class="forecast section" ng-class='{expanded: day.expanded }' data-ng-repeat="day in Forecast.forecast">
+				<div class="forecast card__section" ng-class='{expanded: day.expanded }' data-ng-repeat="day in Forecast.forecast">
 
-					<div class="date">
-						<span data-ng-bind="$first ? 'Today' : (day.date | date:'EEE')">Today</span>
-						<span class="extra" data-ng-bind="day.date | date:'dd/MM/yyyy'"></span>
+					<div class="forecast__date">
+						<span data-ng-bind="$first ? 'Today' : (day.date | date:'EEEE')">Today</span>
 					</div>
 
 					<span class="expander pull-right" data-ng-click="day.expanded = !day.expanded;"></span>
-					<!-- <div class="rating" star-rating ng-model="day.weather.rating"></div> -->
+					<!-- <div class="forecast__rating" star-rating ng-model="day.weather.rating"></div> -->
 
 
-					<div class="details animate-slide">
-						<div class="horizontal-section">
+					<div class="forecast__details animate-slide">
+						<div class="card__horizontal-section">
 							<h5>Swell:</h5>
 							<div class="">Height: <span data-ng-bind="day.hourly[0].swell.height"></span>m</div>
 							<div class="">Period: <span data-ng-bind="day.hourly[0].swell.period"></span>s</div>
 						</div>
 
-						<div class="horizontal-section">
+						<div class="card__horizontal-section">
 							<h5>Wind:</h5>
 							<div class="">Speed: <span data-ng-bind="day.hourly[0].wind.speed"></span>kmph</div>
 							<div class="">Direction: <span data-ng-bind="day.hourly[0].wind.direction"></span>&deg</div>

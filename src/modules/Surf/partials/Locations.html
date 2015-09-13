@@ -1,7 +1,7 @@
-<div class="navbar_search">
-	<input type="text" class="navbar_search_input" data-ng-model="Locations.locationQuery" ng-model-options="{debounce: 300}" data-ng-change="Locations.findLocations(Locations.locationQuery)" placeholder="Search for location">
+<div class="navbar__search">
+	<input type="text" class="navbar__search__input" data-ng-model="Locations.locationQuery" ng-model-options="{debounce: 300}" data-ng-change="Locations.findLocations(Locations.locationQuery)" placeholder="Search for location">
 
-	<div class="navbar_search_dropdown" data-ng-class="{'expanded': Locations.locations.length > 0}">
-		<a class="text-center location" data-ng-repeat="location in Locations.locations | orderBy:'name'" ui-sref="forecast({spotName: '{{location.name | spaceToDash}}', locationId: '{{location.id}}' })" data-ng-bind="location.name"></a>
+	<div class="navbar__search__dropdown" data-ng-class="{'expanded': Locations.locations.length > 0}">
+		<a class="text-center navbar__search__dropdown__location" data-ng-repeat="location in Locations.locations | orderBy:'name'" ui-sref="forecast({spotName: '{{location.name | spaceToDash}}', locationId: '{{location.id}}' })" data-ng-bind="location.name"></a>
 	</div>
 </div>

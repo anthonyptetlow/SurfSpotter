@@ -1,14 +1,28 @@
-.footer {
-	position: fixed;
-	bottom: 0;
-	padding: 10px;
-	text-align: center;
-	width: 100%;
-	background-color: @white;
-	border-top: 1px solid @border-gray;
+html, body {
+	// height: 100%;
 }
 
-.footer_link {
+.content__wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -40px;
+}
+
+.footer, .push {
+	height: 40px;
+}
+
+.footer {
+	// position: fixed;
+	// bottom: 0;
+	padding: 10px;
+	text-align: center;
+	// width: 100%;
+	height: 40px;
+}
+
+.footer__link {
 	&:hover {
 		text-decoration: underline;
 	}

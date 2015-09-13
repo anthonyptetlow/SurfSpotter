@@ -1,0 +1,74 @@
+.alert {
+	padding: 10px 25px 10px 15px;
+	position: relative;
+
+	&:not(:last-child) {
+		border-bottom: 1px solid;
+	}
+}
+
+.alert__close {
+	.clearfix();
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 10px;
+	width: 16px;
+	height: 16px;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.alert__close:before, .alert__close:after {
+  position: absolute;
+  content: ' ';
+  height: 16px;
+  width: 2px;
+  background-color: #000;
+  right: 8px;
+}
+
+.alert__close:before {
+  transform: rotate(45deg);
+}
+
+.alert__close:after {
+  transform: rotate(-45deg);
+}
+
+.alert--variant(@type, @color) {
+	.alert--@{type} {
+		background-color: lighten(@color, 45%);
+		border-color: lighten(@color, 10%);
+
+		.alert__close:before,
+		.alert__close:after {
+			background-color: lighten(@color, 10%);
+		}
+	}
+}
+
+.alert--variant(success, @alert-green);
+.alert--variant(danger, @alert-red);
+
+@media only screen and (min-width: @mobileWidth) {
+	.alerts {
+	    position: absolute;
+	    right: 0;
+	    width: 300px;
+	}
+
+	.alert {
+	    display: inline-block;
+	    float: right;
+	    margin: 10px;
+	    width: 300px;
+	    border: 1px solid;
+	}
+
+	.alert--variant(success, @alert-green);
+	.alert--variant(danger, @alert-red);
+
+}

@@ -8,11 +8,11 @@ angular.module('surfspotter').controller('ForecastController', [
 
 		Forecast.setFavorite = function (isFavourite) {
 			if (isFavourite) {
-				SurfService.saveFavourite(Forecast.place.id).then(function () {
+				SurfService.saveFavourite(Forecast.location.id).then(function () {
 					$state.reload();
 				});
 			} else {
-				SurfService.removeFavourite(Forecast.place.id).then(function () {
+				SurfService.removeFavourite(Forecast.location.id).then(function () {
 					$state.reload();
 				});
 			}

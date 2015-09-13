@@ -1,24 +1,47 @@
-@gridWidth: 980;
-@gutterWidth: 10;
+@gridWidth: 980px;
+@gutterWidth: 10px;
 @columnCount: 6;
+
+
+//Break Points
+@mobileWidth: 640px;
+
+
 
 /* Attribute selector */
 [class*='column-'] {
 	float: left;
-	padding: @gutterWidth * 1px;
-
+	padding: 0 @gutterWidth;
+	width: 100%;
 }
 
 .grid, .container {
 	display: block;
 	margin: 0 auto;
-	width: @gridWidth * 1px;
+	width: 100%;
 }
+
+.row {
+	.clearfix();
+	padding-bottom: @gutterWidth;
+}
+
 .tall {
 	height: 100px;
 }
 
-.generate-columns(@columnCount);
+
+
+@media only screen and (min-width: @gridWidth) {
+	.grid, .container  {
+		width: @gridWidth;
+	}
+}
+
+
+@media only screen and (min-width: @mobileWidth) {
+	.generate-columns(@columnCount);
+}
 
 .generate-columns(@n, @i: 1) when (@i =< @n) {
 
@@ -28,17 +51,3 @@
   .generate-columns(@n, (@i + 1));
 }
 
-
-
-@media only screen and (max-width: 980px) {
-	.grid, .container  {
-		width: 100%;
-	}
-}
-
-
-@media only screen and (max-width: 640px) {
-	[class*='column-'] {
-		width: 100%;
-	}
-}

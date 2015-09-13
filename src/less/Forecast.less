@@ -1,90 +1,82 @@
-.content {
-	margin: 10px;
-}
-
 /* Forecast View */
 
-.forecast-page {
-	margin-top: 20px;
-}
-
-.forecast-page h1 {
-	// margin: 0;
-}
-
-
-.forecast-page .actions {
-	float: right;
-	padding-top: 20px;
-}
-
-
-@media only screen and (max-width : 768px) {
-	.forecast-page .actions {
-		float: none;
-		margin: 15px 0;
-		padding: 0;
-	}
-}
-
-
-@media only screen and (max-width : 480px) {
-	.forecast-page .actions > * {
-		width: 100%;
-	}
-
-	.extra {
-		display: none;
-	}
-}
-
-
 .forecast {
-
 	padding: 10px;
+	position: relative;
+}
 
 
-	.rating {
-		float: right;
-	}
+.forecast__rating {
+	float: right;
+}
 
-	.date {
-		font-size: 1.5rem;
-		display: inline-block;
-	}
+.forecast__date {
+	font-size: 1.5rem;
+	display: inline-block;
+}
 
-	.details {
-		max-height: 0;
-		overflow: hidden;
-		width: 100%;
-	}
+.forecast__details {
+	max-height: 0;
+	overflow: hidden;
+	width: 100%;
+}
 
-	.expander {
-		margin-left: 10px;
-		&:hover {
-			cursor: pointer;
-		}
-	}
+
+
+// .expander {
+// 	margin-left: 10px;
+// 	&:hover {
+// 		cursor: pointer;
+// 	}
+// }
+// .expander:after {
+// 	font-size: 1.5rem;
+// 	content: '+';
+// 	font-weight: bold;
+// 	padding: 0px 8px;
+// 	vertical-align: middle;
+// }
+
+.expanded {
 	.expander:after {
-		font-size: 1.5rem;
-		content: '+';
-		font-weight: bold;
-		padding: 0px 8px;
-		vertical-align: middle;
+		opacity: 0;
 	}
 
-
-
-	&.expanded {
-		// background-color: green;
-		.expander:after {
-			content: '-';
-			padding: 0px 10px;
-		}
-
-		.details {
-			max-height: 500px;
-		}
+	.forecast__details {
+		max-height: 500px;
 	}
 }
 
+
+
+
+.expander {
+	.clearfix();
+
+	position: absolute;
+	margin: 9px;
+	right: 10px;
+	width: 16px;
+	height: 16px;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.expander:before, .expander:after {
+  position: absolute;
+  content: ' ';
+  height: 16px;
+  width: 2px;
+  background-color: #000;
+  right: 8px;
+}
+
+.expander:before {
+  transform: rotate(90deg);
+}
+
+.expander:after {// Reenable once transitions are on the cards
+	// transition: all 0.5s ease;
+}

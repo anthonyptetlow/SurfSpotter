@@ -28,6 +28,11 @@
 //** Link hover decoration.
 @link-hover-decoration: underline;
 
+@brand-blue: #3E78E5;
+@btn-bg: lighten(@brand-blue, 10%);
+@btn-bg-hover: lighten(@btn-bg, 2.5%);
+@btn-bg-disabled: lighten(@btn-bg, 10%);
+
 
 //== Typography
 //
@@ -67,12 +72,14 @@
 
 // Navigation Colors
 @navigation-height: 50px;
-@navigation-border: @border-gray;
-@navigation-bg: @white;
-@navigation-color: @gray-dark;
+@navigation-border: @white;
+@navigation-bg: @brand-blue;
+@navigation-color: @white;
 
 @navigation-logo-height: 20px;
 @navigation-logo-height-computed: floor((@navigation-logo-height * @line-height-base));;
 
-
+//Alert
+@alert-green: #4BA136;
+@alert-red: #DD2226;
 
