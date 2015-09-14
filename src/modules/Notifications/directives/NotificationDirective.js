@@ -1,52 +1,49 @@
 angular.module('surfspotter').directive('notification', [
 	'$timeout',
+	'$rootScope',
 	'NotificationService',
-	function ($timeout, NotificationService) {
+	function ($timeout, $rootScope, NotificationService) {
 	// Runs during compile
 	return {
-		// name: '',
-		// priority: 1,
-		// terminal: true,
-		// scope: {}, // {} = isolate, true = child, false/undefined = no change
 		controller: function() {
 			var Notifications = this;
 
-			Notifications.removeNotification = function (indexToRemove) {
-				Notifications.list.splice(indexToRemove, 1);
+			Notifications.dismissNotification = function () {
+				Notifications.current = undefined;
 			};
 		},
 		controllerAs: 'Notifications',
-		// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
-		// restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
-		// template: '',
 		templateUrl: 'modules/Notifications/partials/Notification.html',
-		// replace: true,
-		// transclude: true,
-		// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
 		link: function($scope, iElm, iAttrs, Notifications) {
-			Notifications.list = [];
+			// Notifications.list = [];
 
-			$scope.$on('$stateChangeSuccess', function () {
-				var newNotifications = NotificationService.shiftAllNotifications();
+			function displayNextNotification() {
+				var message = NotificationService.shiftNotification();
+
+				if(angular.isDefined(message.type)) {
+					message[message.type] = true;
+				} else {
+					message.info = true;
+				}
+				Notifications.current = message;
+
+				if(message.timeout !== null) {
+					$timeout(function () {
+						Notifications.current = undefined;
+
+						if(NotificationService.hasNotifications()){
+							displayNextNotification();
+						}
+
+					}, message.timeout ? message.timeout : 4000);
+				}
+			}
 
 
-				newNotifications.forEach(function(message){
-
-					if(angular.isDefined(message.type)) {
-						message[message.type] = true;
-					} else {
-						message.info = true;
-					}
-					Notifications.list.push(message);
-
-					if(message.timeout !== null) {
-						$timeout(function () {
-							var index = Notifications.list.indexOf(message);
-							Notifications.list.splice(index, 1);
-						}, message.timeout ? message.timeout : 4000);
-					}
-
-				});
+			$rootScope.$on('NEW_NOTIFICATION', function () {
+				if(angular.isUndefined(Notifications.current)) {
+					displayNextNotification();
+				}
 			});
 		}
 	};

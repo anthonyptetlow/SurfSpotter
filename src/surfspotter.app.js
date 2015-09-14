@@ -3,6 +3,7 @@
 angular.module('surfspotter', [
 	'ngResource',
 	'ngStorage',
+	'ngAnimate',
 	'ui.router',
 	'angulartics',
 	'angulartics.google.analytics'

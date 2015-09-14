@@ -1,31 +1,36 @@
 angular.module('surfspotter').service('NotificationService', [
-	'$localStorage',
-	function ($localStorage) {
-		if (angular.isUndefined($localStorage.notifications)) {
-			$localStorage.notifications = [];
+	'$rootScope',
+	function ($rootScope) {
+
+		var notifications = [];
+
+		function addNotification(message, type, timeout) {
+			notifications.push({message: message, type: type, timeout: timeout});
+			$rootScope.$emit('NEW_NOTIFICATION');
 		}
 
-		function addToNextState(message, type, timeout) {
-			$localStorage.notifications.push({message: message, type: type, timeout: timeout});
-		}
-
-		// function getNotifications() {
-		// 	return $localStorage.notifications;
-		// }
-
-		function shiftNotification() {
-			return $localStorage.notifications.shift();
-		}
-
-		function shiftAllNotifications() {
-			var notifications = $localStorage.notifications;
-			$localStorage.notifications = [];
+		function getNotifications() {
 			return notifications;
 		}
 
+		function hasNotifications() {
+			return notifications.length > 0;
+		}
+
+		function shiftNotification() {
+			return notifications.shift();
+		}
+
+		function shiftAllNotifications() {
+			var notificationsToReturn = notifications;
+			notifications = [];
+			return notificationsToReturn;
+		}
+
 		return {
-			addToNextState: addToNextState,
-			// getNotifications: getNotifications,
+			addToNextState: addNotification,
+			getNotifications: getNotifications,
+			hasNotifications: hasNotifications,
 			shiftNotification: shiftNotification,
 			shiftAllNotifications: shiftAllNotifications
 		};

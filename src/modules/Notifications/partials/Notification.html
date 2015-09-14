@@ -1,14 +1,9 @@
-<div class="alerts animate-container">
-	<div class="alert animate-repeat" data-ng-repeat="notification in Notifications.list" role="alert" data-ng-if="notification.message" data-ng-class="{
-										'alert--success': notification.success,
-										'alert--danger': notification.danger
+<div class="alerts">
+	<div class="alert" role="alert" data-ng-if="Notifications.current" data-ng-class="{
+										'alert--success': Notifications.current.success,
+										'alert--danger': Notifications.current.danger
 									}">
-
-		<!-- <span class="glyphicon" data-ng-class="{
-										'glyphicon-ok-sign': notification.success,
-										'glyphicon-remove-sign': notification.danger
-									}"></span> -->
-		<span data-ng-bind="notification.message"></span>
-		<i class="alert__close pull-right" data-ng-click="Notifications.removeNotification($index)"></i>
+		<span data-ng-bind="Notifications.current.message"></span>
+		<i class="alert__close pull-right" data-ng-click="Notifications.dismissNotification()"></i>
 	</div>
 </div>
