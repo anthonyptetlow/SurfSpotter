@@ -553,7 +553,7 @@ a {
   padding: 10px;
 }
 .navbar__search__input {
-  padding: 6px;
+  padding: 6px 30px 6px 30px;
   border-radius: 0;
   border: 1px solid rgba(255, 255, 255, 0.15);
   background-color: rgba(255, 255, 255, 0.1);
@@ -621,9 +621,101 @@ a.star:hover {
     display: block;
   }
 }
+.navbar__search-icon {
+  position: absolute;
+  margin-top: -24px;
+  margin-left: 6px;
+}
+.navbar__search-icon:before {
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background-color: transparent;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  content: '';
+}
+.navbar__search-icon:after {
+  position: relative;
+  top: 5px;
+  width: 2px;
+  height: 10px;
+  background-color: #ffffff;
+  display: inline-block;
+  content: '';
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.navbar__search-clear {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 0;
+  margin-right: 16px;
+  margin-top: -23px;
+}
+.navbar__search-clear:before,
+.navbar__search-clear:after {
+  content: " ";
+  display: table;
+}
+.navbar__search-clear:after {
+  clear: both;
+}
+.navbar__search-clear:before,
+.navbar__search-clear:after {
+  content: " ";
+  display: table;
+}
+.navbar__search-clear:after {
+  clear: both;
+}
+.navbar__search-clear:hover {
+  cursor: pointer;
+}
+.navbar__search-clear:before,
+.navbar__search-clear:after {
+  position: absolute;
+  content: ' ';
+  height: 16px;
+  width: 2px;
+  background-color: #ffffff;
+  right: 8px;
+}
+.navbar__search-clear:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.navbar__search-clear:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+@media only screen and (min-width: 640px) {
+  .navbar__search-clear {
+    margin-right: 8px;
+  }
+}
 .alert {
   padding: 10px 25px 10px 15px;
   position: relative;
+  max-height: 400px;
+  overflow: hidden;
+  opacity: 1;
+  -webkit-transition: all 1s ease;
+          transition: all 1s ease;
+}
+.alert.ng-enter,
+.alert.ng-leave {
+  -webkit-transition: all 1s ease;
+          transition: all 1s ease;
+}
+.alert.ng-enter,
+.alert.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+.alert.ng-leave,
+.alert.ng-enter.ng-enter-active {
+  opacity: 1;
 }
 .alert__close {
   position: absolute;
