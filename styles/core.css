@@ -305,6 +305,10 @@ a {
 .content__wrapper {
   padding-top: 90px;
 }
+.img-responsive {
+  width: 100%;
+  max-width: 100%;
+}
 @media only screen and (min-width: 640px) {
   .content__wrapper {
     padding-top: 50px;
@@ -427,13 +431,106 @@ a {
 .btn:disabled {
   background-color: #6b97eb;
 }
-.btn-link {
+.btn__link {
   background-color: transparent;
   color: #3e78e5;
+  padding-left: 0;
+  padding-right: 0;
 }
-.btn-link:hover {
+.btn__link:hover {
   text-decoration: underline;
   background-color: transparent;
+}
+.btn__icon {
+  background-color: transparent;
+  color: #3e78e5;
+  font-size: 2em;
+  padding: 0;
+}
+.btn__icon:hover {
+  background-color: transparent;
+}
+.btn__icon--add:hover {
+  color: #4ba136;
+}
+.btn__icon--remove:hover {
+  color: #dd2226;
+}
+.plus {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+}
+.plus:after {
+  content: "";
+  position: absolute;
+  background-color: #3e78e5;
+  width: 16px;
+  height: 2px;
+  top: 7px;
+  left: 0px;
+}
+.plus:before {
+  content: "";
+  position: absolute;
+  background-color: #3e78e5;
+  width: 2px;
+  height: 16px;
+  left: 7px;
+}
+.btn__icon--add:hover .plus {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+}
+.btn__icon--add:hover .plus:after {
+  content: "";
+  position: absolute;
+  background-color: #4ba136;
+  width: 16px;
+  height: 2px;
+  top: 7px;
+  left: 0px;
+}
+.btn__icon--add:hover .plus:before {
+  content: "";
+  position: absolute;
+  background-color: #4ba136;
+  width: 2px;
+  height: 16px;
+  left: 7px;
+}
+.minus {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+}
+.minus:after {
+  content: "";
+  position: absolute;
+  background-color: #3e78e5;
+  width: 16px;
+  height: 2px;
+  top: 7px;
+  left: 0px;
+}
+.btn__icon--remove:hover .minus {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+}
+.btn__icon--remove:hover .minus:after {
+  content: "";
+  position: absolute;
+  background-color: #dd2226;
+  width: 16px;
+  height: 2px;
+  top: 7px;
+  left: 0px;
 }
 .form__label {
   display: block;
@@ -526,18 +623,25 @@ a {
 .navbar__group > li {
   display: inline-block;
 }
-.navbar__item {
+.navbar__item,
+.navbar__item--icon {
   margin-top: 15px;
   margin-bottom: 15px;
   margin-left: 10px;
   margin-right: 10px;
 }
-.navbar__item a {
+.navbar__item a,
+.navbar__item--icon a {
   color: #ffffff;
 }
-.navbar__item a:hover {
+.navbar__item a:hover,
+.navbar__item--icon a:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+.navbar__item--icon {
+  margin: 0;
+  font-size: 1.5em;
 }
 .navbar__logo {
   margin-top: 11px;
@@ -839,6 +943,22 @@ a.star:hover {
   max-height: 0;
   overflow: hidden;
   width: 100%;
+}
+@media only screen and (min-width: 640px) {
+  .forecast__header {
+    display: block;
+    position: relative;
+  }
+  .forecast__actions {
+    margin-top: 30px;
+    right: 0;
+    position: absolute;
+  }
+  .forecast__title {
+    float: left;
+    display: inline-block;
+    margin-right: 60px;
+  }
 }
 .expanded .expander:after {
   opacity: 0;
