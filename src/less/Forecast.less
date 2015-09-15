@@ -22,20 +22,25 @@
 }
 
 
+@media only screen and (min-width: @mobileWidth) {
 
-// .expander {
-// 	margin-left: 10px;
-// 	&:hover {
-// 		cursor: pointer;
-// 	}
-// }
-// .expander:after {
-// 	font-size: 1.5rem;
-// 	content: '+';
-// 	font-weight: bold;
-// 	padding: 0px 8px;
-// 	vertical-align: middle;
-// }
+	.forecast__header {
+		display: block;
+		position: relative;
+	}
+
+	.forecast__actions {
+		margin-top: 30px;
+		right: 0;
+		position: absolute;
+	}
+
+	.forecast__title {
+		float: left;
+		display: inline-block;
+		margin-right: 60px;
+	}
+}
 
 .expanded {
 	.expander:after {
@@ -46,9 +51,6 @@
 		max-height: 500px;
 	}
 }
-
-
-
 
 .expander {
 	.clearfix();

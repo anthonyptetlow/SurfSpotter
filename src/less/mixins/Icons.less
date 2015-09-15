@@ -1,0 +1,49 @@
+.plus(@color) {
+
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	position: relative;
+
+
+	&:after {
+		content:"";
+		position: absolute;
+		background-color: @color;
+
+		width: 16px;
+		height: 2px;
+		top: 7px;
+		left: 0px;
+	}
+
+	&:before {
+		content:"";
+		position: absolute;
+		background-color: @color;
+
+		width: 2px;
+		height: 16px;
+		left: 7px;
+	}
+}
+
+.minus(@color) {
+
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	position: relative;
+
+
+	&:after {
+		content:"";
+		position: absolute;
+		background-color: @color;
+
+		width: 16px;
+		height: 2px;
+		top: 7px;
+		left: 0px;
+	}
+}
