@@ -1,0 +1,16 @@
+<div class="grid">
+	<div class="row">
+		<div class="column-6">
+			<h1>All Locations</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="column-2" data-ng-repeat="location in LocationList.locations">
+			<div class="card text-center">
+				<div class="card__section">
+					<a class="" data-ng-bind="location.name" data-ui-sref="forecast({spotName: '{{location.name | spaceToDash}}', locationId: '{{location.id}}' })"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

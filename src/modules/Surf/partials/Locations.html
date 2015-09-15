@@ -6,6 +6,6 @@
 
 
 	<div class="navbar__search__dropdown" data-ng-class="{'expanded': Locations.locations.length > 0}">
-		<a class="text-center navbar__search__dropdown__location" data-ng-repeat="location in Locations.locations | orderBy:'name'" ui-sref="forecast({spotName: '{{location.name | spaceToDash}}', locationId: '{{location.id}}' })" data-ng-bind="location.name"></a>
+		<a class="text-center navbar__search__dropdown__location" data-ng-repeat="location in Locations.locations | orderBy:'name'" data-ui-sref="forecast({spotName: '{{location.name | spaceToDash}}', locationId: '{{location.id}}' })" data-ng-bind="location.name"></a>
 	</div>
 </div>

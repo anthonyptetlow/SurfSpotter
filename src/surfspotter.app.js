@@ -34,6 +34,20 @@ angular.module('surfspotter', [
 			}]
 		}
 	})
+	.state('locations', {
+		url: '/locations',
+		views: {
+			'content': {
+				templateUrl: 'modules/Surf/partials/LocationList.html',
+				controller: 'LocationListController as LocationList'
+			}
+		},
+		resolve: {
+			locations: ['SurfService', function (SurfService) {
+				return SurfService.getAllLocations();
+			}]
+		}
+	})
 	.state('location', {
 		url: '/location/:spotName/:spotId',
 		views: {

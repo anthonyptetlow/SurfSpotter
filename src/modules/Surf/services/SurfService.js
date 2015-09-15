@@ -47,14 +47,18 @@ angular.module('surfspotter').service('SurfService', [
 		function removeFavourite(locationId) {
 			return location.removeFavourite({locationId: locationId}).$promise;
 		}
+
+		function getAllLocations() {
+			return location.query().$promise;
+		}
 		return {
 			getForecast: getForecast,
 			findLocations: findLocations,
 			getFavourites: getFavourites,
 			saveFavourite: saveFavourite,
 			removeFavourite: removeFavourite,
-			getLocation: getLocation
-
+			getLocation: getLocation,
+			getAllLocations: getAllLocations
 		};
 	}
 ]);
