@@ -6,8 +6,13 @@ angular.module('surfspotter', [
 	'ngAnimate',
 	'ui.router',
 	'angulartics',
-	'angulartics.google.analytics'
-	]).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
+	'angulartics.google.analytics',
+	'uiGmapgoogle-maps'
+	]).config([
+				'$stateProvider',
+				'$urlRouterProvider',
+				'$locationProvider',
+				function($stateProvider, $urlRouterProvider, $locationProvider) {
 
 	$urlRouterProvider.otherwise('/404/');
 
@@ -105,4 +110,10 @@ angular.module('surfspotter', [
 	// Enable html5 mode to remove the hashtag in urls
     $locationProvider.html5Mode(true);
 
+}]).config(['uiGmapGoogleMapApiProvider', function(uiGmapGoogleMapApiProvider) {
+    uiGmapGoogleMapApiProvider.configure({
+        //    key: 'your api key',
+        v: '3.20', //defaults to latest 3.X anyhow
+        libraries: 'weather,geometry,visualization'
+    });
 }]);

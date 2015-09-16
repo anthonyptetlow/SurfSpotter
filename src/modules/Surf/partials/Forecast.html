@@ -30,7 +30,7 @@
 						<span data-ng-bind="$first ? 'Today' : (day.date | date:'EEEE')">Today</span>
 					</div>
 
-					<span class="pull-right plus" data-ng-class="{'plus': !day.expanded, 'minus': day.expanded}" data-ng-click="day.expanded = !day.expanded;"></span>
+					<span class="pull-right" data-ng-class="{'plus': !day.expanded, 'minus': day.expanded}" data-ng-click="day.expanded = !day.expanded;"></span>
 					<!-- <div class="forecast__rating" star-rating ng-model="day.weather.rating"></div> -->
 
 
@@ -53,9 +53,17 @@
 			</div>
 		</div>
 		<div class="column-2">
+
+			<div class="card">
+				<div class="card__section">
+					<ui-gmap-google-map center='Forecast.location.coordinate' zoom="Forecast.zoom">
+						<ui-gmap-marker idKey="'location'" coords='Forecast.location.coordinate'></ui-gmap-marker>
+					</ui-gmap-google-map>
+				</div>
+			</div>
+
 			<div class="card" data-ng-if="Forecast.location.image">
 				<div class="card__section">
-
 				<img class="img-responsive" data-ng-src="{{Forecast.location.image}}" alt="">
 				</div>
 			</div>

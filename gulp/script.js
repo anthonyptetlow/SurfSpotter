@@ -35,7 +35,10 @@ gulp.task('script', function() {
             __dirname + '/../src/lib/angular-animate/angular-animate.min.js',
             __dirname + '/../src/lib/ngstorage/ngStorage.min.js',
             __dirname + '/../src/lib/angulartics/dist/angulartics.min.js',
-            __dirname + '/../src/lib/angulartics-google-analytics/dist/angulartics-google-analytics.min.js'
+            __dirname + '/../src/lib/angulartics-google-analytics/dist/angulartics-google-analytics.min.js',
+            __dirname + '/../src/lib/lodash/lodash.min.js',
+            __dirname + '/../src/lib/angular-simple-logger/dist/index.js',
+            __dirname + '/../src/lib/angular-google-maps/dist/angular-google-maps.min.js'
         ];
     } else {
         angularJsFiles = [
@@ -45,7 +48,11 @@ gulp.task('script', function() {
             __dirname + '/../src/lib/angular-animate/angular-animate.js',
             __dirname + '/../src/lib/ngstorage/ngStorage.js',
             __dirname + '/../src/lib/angulartics/src/angulartics.js',
-            __dirname + '/../src/lib/angulartics-google-analytics/lib/angulartics-google-analytics.js'
+            __dirname + '/../src/lib/angulartics-google-analytics/lib/angulartics-google-analytics.js',
+            __dirname + '/../src/lib/lodash/lodash.js',
+            __dirname + '/../src/lib/angular-simple-logger/dist/index.js',
+            __dirname + '/../src/lib/angular-google-maps/dist/angular-google-maps.js'
+
         ];
     }
 
