@@ -377,6 +377,9 @@ a {
   }
 }
 @media only screen and (min-width: 640px) {
+  .column-desktop-right {
+    float: right;
+  }
   .column-1 {
     width: 16.66666667%;
   }
