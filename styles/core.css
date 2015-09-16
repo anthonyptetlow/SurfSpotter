@@ -414,6 +414,20 @@ a {
     margin-left: 100%;
   }
 }
+.hide-slide.ng-hide-add,
+.hide-slide.ng-hide-remove {
+  -webkit-transition: all ease-in-out 1s;
+          transition: all ease-in-out 1s;
+  display: block!important;
+}
+.hide-slide.ng-hide-add.ng-hide-add-active,
+.hide-slide.ng-hide-remove {
+  max-height: 0;
+}
+.hide-slide.ng-hide-add,
+.hide-slide.ng-hide-remove.ng-hide-remove-active {
+  max-height: 5000px;
+}
 .btn {
   background-color: #3e78e5;
   border-radius: 0;
@@ -456,7 +470,84 @@ a {
 .btn__icon--remove:hover {
   color: #dd2226;
 }
+.btn__icon--plus {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+}
+.btn__icon--plus:after {
+  content: "";
+  position: absolute;
+  background-color: #3e78e5;
+  width: 16px;
+  height: 2px;
+  top: 7px;
+  left: 0px;
+}
+.btn__icon--plus:before {
+  content: "";
+  position: absolute;
+  background-color: #3e78e5;
+  width: 2px;
+  height: 16px;
+  left: 7px;
+}
+.btn__icon--add:hover .btn__icon--plus {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+}
+.btn__icon--add:hover .btn__icon--plus:after {
+  content: "";
+  position: absolute;
+  background-color: #4ba136;
+  width: 16px;
+  height: 2px;
+  top: 7px;
+  left: 0px;
+}
+.btn__icon--add:hover .btn__icon--plus:before {
+  content: "";
+  position: absolute;
+  background-color: #4ba136;
+  width: 2px;
+  height: 16px;
+  left: 7px;
+}
+.btn__icon--minus {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+}
+.btn__icon--minus:after {
+  content: "";
+  position: absolute;
+  background-color: #3e78e5;
+  width: 16px;
+  height: 2px;
+  top: 7px;
+  left: 0px;
+}
+.btn__icon--remove:hover .btn__icon--minus {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+}
+.btn__icon--remove:hover .btn__icon--minus:after {
+  content: "";
+  position: absolute;
+  background-color: #dd2226;
+  width: 16px;
+  height: 2px;
+  top: 7px;
+  left: 0px;
+}
 .plus {
+  margin: 8px;
   width: 16px;
   height: 16px;
   display: inline-block;
@@ -465,7 +556,7 @@ a {
 .plus:after {
   content: "";
   position: absolute;
-  background-color: #3e78e5;
+  background-color: #000000;
   width: 16px;
   height: 2px;
   top: 7px;
@@ -474,35 +565,13 @@ a {
 .plus:before {
   content: "";
   position: absolute;
-  background-color: #3e78e5;
-  width: 2px;
-  height: 16px;
-  left: 7px;
-}
-.btn__icon--add:hover .plus {
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  position: relative;
-}
-.btn__icon--add:hover .plus:after {
-  content: "";
-  position: absolute;
-  background-color: #4ba136;
-  width: 16px;
-  height: 2px;
-  top: 7px;
-  left: 0px;
-}
-.btn__icon--add:hover .plus:before {
-  content: "";
-  position: absolute;
-  background-color: #4ba136;
+  background-color: #000000;
   width: 2px;
   height: 16px;
   left: 7px;
 }
 .minus {
+  margin: 8px;
   width: 16px;
   height: 16px;
   display: inline-block;
@@ -511,22 +580,7 @@ a {
 .minus:after {
   content: "";
   position: absolute;
-  background-color: #3e78e5;
-  width: 16px;
-  height: 2px;
-  top: 7px;
-  left: 0px;
-}
-.btn__icon--remove:hover .minus {
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  position: relative;
-}
-.btn__icon--remove:hover .minus:after {
-  content: "";
-  position: absolute;
-  background-color: #dd2226;
+  background-color: #000000;
   width: 16px;
   height: 2px;
   top: 7px;
@@ -584,6 +638,9 @@ a {
 }
 .card__horizontal-section:not(:last-child) {
   border-right: 1px solid #f0f0f0;
+}
+.card__section--sides {
+  padding: 0 10px;
 }
 @media only screen and (min-width: 640px) {
   .card__horizontal-section {
@@ -940,9 +997,12 @@ a.star:hover {
   display: inline-block;
 }
 .forecast__details {
-  max-height: 0;
   overflow: hidden;
   width: 100%;
+}
+.forecast .minus:hover,
+.forecast .plus:hover {
+  cursor: pointer;
 }
 @media only screen and (min-width: 640px) {
   .forecast__header {
@@ -960,50 +1020,8 @@ a.star:hover {
     margin-right: 60px;
   }
 }
-.expanded .expander:after {
-  opacity: 0;
-}
-.expanded .forecast__details {
-  max-height: 500px;
-}
-.expander {
-  position: absolute;
-  margin: 9px;
-  right: 10px;
-  width: 16px;
-  height: 16px;
-}
-.expander:before,
-.expander:after {
-  content: " ";
-  display: table;
-}
-.expander:after {
-  clear: both;
-}
-.expander:before,
-.expander:after {
-  content: " ";
-  display: table;
-}
-.expander:after {
-  clear: both;
-}
-.expander:hover {
-  cursor: pointer;
-}
-.expander:before,
-.expander:after {
-  position: absolute;
-  content: ' ';
-  height: 16px;
-  width: 2px;
-  background-color: #000;
-  right: 8px;
-}
-.expander:before {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+.angular-google-map-container {
+  height: 250px;
 }
 .favourite {
   margin-bottom: 10px;
