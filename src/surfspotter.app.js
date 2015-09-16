@@ -21,8 +21,14 @@ angular.module('surfspotter', [
 		url: '/',
 		views: {
 			'content': {
-				templateUrl: 'Home.html'
+				templateUrl: 'Home.html',
+				controller: 'LocationListController as LocationList'
 			}
+		},
+		resolve: {
+			locations: ['SurfService', function (SurfService) {
+				return SurfService.getAllLocations();
+			}]
 		}
 	})
 	.state('forecast', {
