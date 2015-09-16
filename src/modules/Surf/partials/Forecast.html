@@ -12,8 +12,8 @@
 										'btn__icon--remove': Forecast.location.isFavourite,
 										'btn__icon--add': !Forecast.location.isFavourite }"><!--
 						 --><span class="icon" data-ng-class="{
-							'minus': Forecast.location.isFavourite,
-							'plus': !Forecast.location.isFavourite}">
+							'btn__icon--minus': Forecast.location.isFavourite,
+							'btn__icon--plus': !Forecast.location.isFavourite}">
 						</span>
 						<span class="star"></span>
 					</button>
@@ -24,17 +24,17 @@
 	<div class="row">
 		<div class="column-4">
 			<div class="card">
-				<div class="forecast card__section" ng-class='{expanded: day.expanded }' data-ng-repeat="day in Forecast.forecast">
+				<div class="forecast card__section" data-ng-repeat="day in Forecast.forecast">
 
 					<div class="forecast__date">
 						<span data-ng-bind="$first ? 'Today' : (day.date | date:'EEEE')">Today</span>
 					</div>
 
-					<span class="expander pull-right" data-ng-click="day.expanded = !day.expanded;"></span>
+					<span class="pull-right plus" data-ng-class="{'plus': !day.expanded, 'minus': day.expanded}" data-ng-click="day.expanded = !day.expanded;"></span>
 					<!-- <div class="forecast__rating" star-rating ng-model="day.weather.rating"></div> -->
 
 
-					<div class="forecast__details animate-slide">
+					<div class="forecast__details animate-slide hide-slide" data-ng-hide="!day.expanded">
 						<div class="card__horizontal-section">
 							<h5>Swell:</h5>
 							<div class="">Height: <span data-ng-bind="day.hourly[0].swell.height"></span>m</div>

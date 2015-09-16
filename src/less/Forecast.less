@@ -16,9 +16,13 @@
 }
 
 .forecast__details {
-	max-height: 0;
 	overflow: hidden;
 	width: 100%;
+}
+
+.forecast .minus:hover,
+.forecast .plus:hover {
+	cursor: pointer;
 }
 
 
@@ -42,43 +46,11 @@
 	}
 }
 
-.expanded {
-	.expander:after {
-		opacity: 0;
-	}
 
-	.forecast__details {
-		max-height: 500px;
-	}
-}
 
-.expander {
-	.clearfix();
 
-	position: absolute;
-	margin: 9px;
-	right: 10px;
-	width: 16px;
-	height: 16px;
 
-	&:hover {
-		cursor: pointer;
-	}
-}
 
-.expander:before, .expander:after {
-  position: absolute;
-  content: ' ';
-  height: 16px;
-  width: 2px;
-  background-color: #000;
-  right: 8px;
-}
 
-.expander:before {
-  transform: rotate(90deg);
-}
 
-.expander:after {// Reenable once transitions are on the cards
-	// transition: all 0.5s ease;
-}
+
