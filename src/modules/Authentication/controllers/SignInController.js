@@ -12,7 +12,12 @@ angular.module('surfspotter').controller('SignInController', [
 			}).then(function (user) {
 				AuthService.storeUser(user);
 				NotificationService.addToNextState('You are now logged in, have a great time :)', 'success', 2000);
-				$state.go('app');
+
+				if (angular.isDefined(AuthService.getPreAuthState())) {
+					$state.go(AuthService.getPreAuthState(), AuthService.getPreAuthParams());
+				} else {
+					$state.go('app');
+				}
 			}, function (error) {
 				SignIn.error = {};
 

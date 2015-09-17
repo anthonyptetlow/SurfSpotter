@@ -29,6 +29,19 @@ angular.module('surfspotter').service('AuthService', [
 			delete $sessionStorage.user;
 		}
 
+		var state, params;
+		function storePreAuthState(currentState, currentParams) {
+			state = currentState;
+			params = currentParams;
+		}
+
+		function getPreAuthState() {
+			return state;
+		}
+		function getPreAuthParams() {
+			return params;
+		}
+
 		function isAuthenticated() {
 			// Maybe updte this to use the npm module to check validity?
 			//Or Make a call to the server?
@@ -42,7 +55,10 @@ angular.module('surfspotter').service('AuthService', [
 			getToken: getToken,
 			getUser: getUser,
 			clearToken: clearToken,
-			clearUser: clearUser
+			clearUser: clearUser,
+			storePreAuthState: storePreAuthState,
+			getPreAuthState: getPreAuthState,
+			getPreAuthParams: getPreAuthParams
 		};
 	}
 ]);
