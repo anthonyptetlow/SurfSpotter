@@ -285,6 +285,191 @@ a {
   color: #337ab7;
   text-decoration: none;
 }
+@font-face {
+  font-family: 'surfspotter';
+  src: url('/assets/fonts/surfspotter.eot');
+  src: url('/assets/fonts/surfspotter.eot#iefix') format('embedded-opentype'), url('/assets/fonts/surfspotter.woff') format('woff'), url('/assets/fonts/surfspotter.ttf') format('truetype'), url('/assets/fonts/surfspotter.svg#surfspotter') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'surfspotter';
+    src: url('../font/surfspotter.svg?8971506#surfspotter') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "surfspotter";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+.icon-plus:before {
+  content: '\e800';
+}
+/* '' */
+.icon-minus:before {
+  content: '\e801';
+}
+/* '' */
+.icon-windows:before {
+  content: '\e802';
+}
+/* '' */
+.icon-facebook:before {
+  content: '\e803';
+}
+/* '' */
+.icon-instagram:before {
+  content: '\e804';
+}
+/* '' */
+.icon-gplus:before {
+  content: '\e805';
+}
+/* '' */
+.icon-apple:before {
+  content: '\e806';
+}
+/* '' */
+.icon-android:before {
+  content: '\e807';
+}
+/* '' */
+.icon-twitter:before {
+  content: '\e808';
+}
+/* '' */
+.icon-mail:before {
+  content: '\e809';
+}
+/* '' */
+.icon-star:before {
+  content: '\e80a';
+}
+/* '' */
+.icon-star-empty:before {
+  content: '\e80b';
+}
+/* '' */
+.icon-star-half:before {
+  content: '\e80c';
+}
+/* '' */
+.icon-star-half-alt:before {
+  content: '\e80d';
+}
+/* '' */
+.icon-ok:before {
+  content: '\e80e';
+}
+/* '' */
+.icon-cancel:before {
+  content: '\e80f';
+}
+/* '' */
+.icon-help:before {
+  content: '\e810';
+}
+/* '' */
+.icon-direction:before {
+  content: '\e811';
+}
+/* '' */
+.icon-trash-empty:before {
+  content: '\e812';
+}
+/* '' */
+.icon-trash:before {
+  content: '\e813';
+}
+/* '' */
+.icon-cog:before {
+  content: '\e814';
+}
+/* '' */
+.icon-cog-alt:before {
+  content: '\e815';
+}
+/* '' */
+.icon-block:before {
+  content: '\e816';
+}
+/* '' */
+.icon-down-open:before {
+  content: '\e817';
+}
+/* '' */
+.icon-up-open:before {
+  content: '\e818';
+}
+/* '' */
+.icon-right-open:before {
+  content: '\e819';
+}
+/* '' */
+.icon-left-open:before {
+  content: '\e81a';
+}
+/* '' */
+.icon-down-dir:before {
+  content: '\e81b';
+}
+/* '' */
+.icon-up-dir:before {
+  content: '\e81c';
+}
+/* '' */
+.icon-left-dir:before {
+  content: '\e81d';
+}
+/* '' */
+.icon-right-dir:before {
+  content: '\e81e';
+}
+/* '' */
+.icon-angle-left:before {
+  content: '\e81f';
+}
+/* '' */
+.icon-angle-right:before {
+  content: '\e820';
+}
+/* '' */
+.icon-angle-up:before {
+  content: '\e821';
+}
+/* '' */
+.icon-angle-down:before {
+  content: '\e822';
+}
+/* '' */
 * {
   box-sizing: border-box;
 }
@@ -303,15 +488,21 @@ a {
   clear: both;
 }
 .content__wrapper {
-  padding-top: 90px;
+  padding-top: 100px;
 }
 .img-responsive {
   width: 100%;
   max-width: 100%;
 }
+.pointer:hover {
+  cursor: pointer;
+}
+.twice {
+  font-size: 2em;
+}
 @media only screen and (min-width: 640px) {
   .content__wrapper {
-    padding-top: 50px;
+    padding-top: 60px;
   }
 }
 /* Attribute selector */
@@ -624,6 +815,14 @@ a {
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   border: 1px solid #f0f0f0;
 }
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5,
+.card h6 {
+  margin-top: 10px;
+}
 .card__section {
   padding: 10px;
 }
@@ -648,7 +847,6 @@ a {
 @media only screen and (min-width: 640px) {
   .card__horizontal-section {
     padding-bottom: 0;
-    border-top: none;
   }
 }
 .navbar {
@@ -704,14 +902,22 @@ a {
   font-size: 1.5em;
 }
 .navbar__logo {
-  margin-top: 11px;
-  margin-bottom: 11px;
-  margin-left: 10px;
-  margin-right: 10px;
   display: inline-block;
   color: #ffffff;
   font-size: 20px;
   float: left;
+}
+.navbar__logo-image {
+  width: 30px;
+  margin: 10px 0 10px 10px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  vertical-align: middle;
+}
+.navbar__logo-text {
+  vertical-align: middle;
+  line-height: 40px;
+  margin-top: 5px;
 }
 .navbar__search {
   padding: 10px;
