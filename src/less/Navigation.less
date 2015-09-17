@@ -1,26 +1,12 @@
 .navbar {
 	width: 100%;
 	background-color: @navigation-bg;
-	// border-bottom: 1px solid @border-gray;
-
-
-
 	position: fixed;
 	top: 0;
 	z-index: 10;
 
-	// // For Sticky Header
-	// transition: all 0.3s ease;
-	// max-height: 300px;
-	// overflow: hidden;
 	.clearfix();
 }
-
-
-// .hide-header {
-// 	max-height: 0;
-// }
-
 
 .navbar__group {
 	.list-inline();
@@ -47,14 +33,25 @@
 }
 
 .navbar__logo {
-	.navbar-padding(@navigation-logo-height-computed);
-
+	// .navbar-padding(@navigation-logo-height-computed);
 	display: inline-block;
 	color: @navigation-color;
 	font-size: @navigation-logo-height;
 	float: left;
 }
+.navbar__logo-image {
+	width: 30px;
+	margin: 10px 0 10px 10px;
+	border-radius: 50%;
+	border: 2px solid @white;
+	vertical-align: middle;
+}
 
+.navbar__logo-text {
+	vertical-align: middle;
+	line-height: 40px;
+	margin-top: 5px;
+}
 
 .navbar__search {
 	padding: 10px;

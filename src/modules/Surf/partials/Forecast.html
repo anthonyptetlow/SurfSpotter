@@ -26,11 +26,13 @@
 			<div class="card">
 				<div class="forecast card__section" data-ng-repeat="day in Forecast.forecast">
 
-					<div class="forecast__date">
-						<span data-ng-bind="$first ? 'Today' : (day.date | date:'EEEE')">Today</span>
-					</div>
+					<div class="pointer" data-ng-click="day.expanded = !day.expanded;">
+						<div class="forecast__date">
+							<span data-ng-bind="$first ? 'Today' : (day.date | date:'EEEE')">Today</span>
+						</div>
 
-					<span class="pull-right" data-ng-class="{'plus': !day.expanded, 'minus': day.expanded}" data-ng-click="day.expanded = !day.expanded;"></span>
+						<span class="pull-right twice" data-ng-class="{'icon-angle-up': !day.expanded, 'icon-angle-down': day.expanded}"></span>
+					</div>
 					<!-- <div class="forecast__rating" star-rating ng-model="day.weather.rating"></div> -->
 
 

@@ -16,23 +16,26 @@ angular.module('surfspotter').directive('navigationBar', [
 				};
 
 				NavigationBar.signIn = function () {
-					AuthService.storePreAuthState($state.current.name, $state.params);
+					if ($state.current.name !== 'signIn' || $state.current.name !== 'signUp') {
+						AuthService.storePreAuthState($state.current.name, $state.params);
+					}
 					$state.go('signIn');
-				}
+				};
 
+				NavigationBar.signUp = function () {
+					if ($state.current.name !== 'signIn' || $state.current.name !== 'signUp') {
+						AuthService.storePreAuthState($state.current.name, $state.params);
+					}
+					$state.go('signUp');
+				};
 
 				NavigationBar.getUser = AuthService.getUser;
 
 			},
 			controllerAs: 'NavigationBar',
-			// require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
 			restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
-			// template: '',
-			// templateUrl: '',
 			templateUrl: 'modules/Navigation/partials/NavigationBar.html',
 			replace: true,
-			// transclude: true,
-			// compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
 			link: function() {}
 		};
 	}
