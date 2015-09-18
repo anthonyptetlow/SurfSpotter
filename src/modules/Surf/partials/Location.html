@@ -13,7 +13,9 @@
 
 		<div class="column-3">
 			<p data-ng-if="Location.image">Image: <span data-ng-bind="Location.image"></span></p>
-			<img class="img-responsive" data-ng-src="{{Location.image}}" alt="" onerror="this.style.display='none';">
+			<!-- <img class="img-responsive" data-ng-src="{{Location.image.url}}" alt=""  onerror="this.style.display='none';"> -->
+			<span data-url="{{Location.image.url}}" data-image-width="{{Location.image.width}}" data-image-height="{{Location.image.height}}" image></span>
+
 		</div>
 	</div>
 
