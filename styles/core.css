@@ -488,7 +488,7 @@ a {
   clear: both;
 }
 .content__wrapper {
-  padding-top: 100px;
+  padding-top: 90px;
 }
 .img-responsive {
   width: 100%;
@@ -502,7 +502,7 @@ a {
 }
 @media only screen and (min-width: 640px) {
   .content__wrapper {
-    padding-top: 60px;
+    padding-top: 50px;
   }
 }
 /* Attribute selector */
