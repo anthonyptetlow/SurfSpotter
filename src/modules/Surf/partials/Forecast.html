@@ -4,6 +4,12 @@
 			<div class="forecast__header clearfix">
 
 				<h1 class="forecast__title" data-ng-bind="Forecast.location.name"></h1>
+				<div class="forecast__regions">
+					<span data-ng-repeat="ancestor in Forecast.location.region.ancestors">
+						<span data-ng-bind="ancestor.name"></span> >
+					</span>
+					<span data-ng-bind="Forecast.location.region.name"></span>
+				</div>
 
 				<div class="forecast__actions">
 					<button class="btn btn__icon" data-ng-if="Auth.isSignedin()"
@@ -21,6 +27,8 @@
 			</div>
 		</div>
 	</div>
+
+
 	<div class="row">
 		<div class="column-4">
 			<div class="card">
