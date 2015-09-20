@@ -1213,6 +1213,14 @@ a.star:hover {
 .forecast .plus:hover {
   cursor: pointer;
 }
+.forecast__regions {
+  float: left;
+  width: 100%;
+}
+.forecast__actions {
+  float: left;
+  width: 100%;
+}
 @media only screen and (min-width: 640px) {
   .forecast__header {
     display: block;
@@ -1222,6 +1230,7 @@ a.star:hover {
     margin-top: 30px;
     right: 0;
     position: absolute;
+    width: auto;
   }
   .forecast__title {
     float: left;
