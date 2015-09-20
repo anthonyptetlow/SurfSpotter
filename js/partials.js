@@ -23,7 +23,7 @@ angular.module('surfspotter').run(['$templateCache', function($templateCache) {
 angular.module('surfspotter').run(['$templateCache', function($templateCache) {
   $templateCache.put('index.html',
     '<html ng-app=surfspotter><head><link rel=icon type=image/png href=/assets/wave2.png><title>SurfSpotter</title><meta http-equiv=Content-Type content=text/html><meta charset=utf-8><meta name=viewport content="width=device-width, initial-scale=1, user-scalable=0"><meta name=description content="Get notifications or emails about your favourite surf spots when the surf is good."><meta name=author content="Anthony P Tetlow"><meta name=keywords content="surf report, surf forecast, surfing, surf notification"><link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:400,700" rel=stylesheet type=text/css><link rel=stylesheet href=/styles/core.css><base href="/"></head><body class=body data-ng-controller="AuthController as Auth"><div class=content__wrapper><div data-navigation-bar></div><div data-notification></div><div data-ui-view=content></div><div class=push></div></div><footer class=footer>Built by <a class=footer__link href=http://anthonyptetlow.com>this guy</a> with <a class=footer__link href="http://www.worldweatheronline.com/">World Weather Online</a></footer></body><script>\n' +
-    '	if (document.domain === \'surfspotter.eu\') {\n' +
+    '	if (document.domain === \'surfspotter.eu\' && document.documentURI.indexOf(\'no-tracking\') > -1) {\n' +
     '\n' +
     '	  (function(i,s,o,g,r,a,m){i[\'GoogleAnalyticsObject\']=r;i[r]=i[r]||function(){\n' +
     '	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\n' +
