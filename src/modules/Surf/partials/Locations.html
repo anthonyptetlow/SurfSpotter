@@ -2,10 +2,13 @@
 
 	<input type="text" class="navbar__search__input" data-ng-model="Locations.locationQuery" ng-model-options="{debounce: 300}" data-ng-change="Locations.findLocations(Locations.locationQuery)" placeholder="Search for location">
 	<span class="navbar__search-icon"></span>
-	<span class="navbar__search-clear" data-ng-if="Locations.locationQuery.length > 0" data-ng-click="Locations.locationQuery = ''; Locations.locations = []"></span>
+	<span class="navbar__search-clear" data-ng-if="Locations.locationQuery.length > 0" data-ng-click="Locations.locationQuery = ''; Locations.clearResults()"></span>
 
 
-	<div class="navbar__search__dropdown" data-ng-class="{'expanded': Locations.locations.length > 0}">
-		<a class="text-center navbar__search__dropdown__location" data-ng-repeat="location in Locations.locations | orderBy:'name'" data-ui-sref="forecast({spotName: '{{location.name | spaceToDash}}', locationId: '{{location._id}}' })" data-ng-bind="location.name"></a>
+	<div class="navbar__search__dropdown" data-ng-class="{'expanded': Locations.result.locations.length > 0}">
+		<h4 class="navbar__search__dropdown__location" data-ng-if="Locations.result.regions.length > 0">Regions</h4>
+			<a class="text-center navbar__search__dropdown__location" data-ng-repeat="region in Locations.result.regions | orderBy:'name'"  data-ng-bind="region.name"></a>
+		<h4 class="navbar__search__dropdown__location" data-ng-if="Locations.result.locations.length > 0">Spots</h4>
+			<a class="text-center navbar__search__dropdown__location" data-ng-repeat="location in Locations.result.locations | orderBy:'name'" data-ui-sref="forecast({spotName: '{{location.name | spaceToDash}}', locationId: '{{location._id}}' })" data-ng-bind="location.name"></a>
 	</div>
 </div>
