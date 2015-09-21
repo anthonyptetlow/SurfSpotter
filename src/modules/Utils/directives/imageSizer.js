@@ -20,7 +20,7 @@ angular.module('surfspotter').directive('image', [
 			// transclude: true,
 			template: '<img class="img-responsive" data-ng-src="{{url}}" onerror="this.style.display=\'none\';">',
 			replace: true,
-			link: function($scope, element, attrs, controller) {
+			link: function($scope, element, attrs) {
 				attrs.$set('height', element[0].offsetWidth * ($scope.imageHeight / $scope.imageWidth));
 			}
 		};

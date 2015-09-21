@@ -6,7 +6,7 @@
 				<h1 class="forecast__title" data-ng-bind="Forecast.location.name"></h1>
 				<div class="forecast__regions">
 					<span data-ng-repeat="ancestor in Forecast.location.region.ancestors">
-						<span data-ng-bind="ancestor.name"></span> >
+						<span data-ng-bind="ancestor.name + '  > '"></span>
 					</span>
 					<span data-ng-bind="Forecast.location.region.name"></span>
 				</div>
