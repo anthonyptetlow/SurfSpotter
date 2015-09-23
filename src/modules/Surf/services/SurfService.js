@@ -9,7 +9,7 @@ angular.module('surfspotter').service('SurfService', [
 				find: {
 					method: 'GET',
 					url: '/api/surf/' + surfVersion + '/locations/find/:partial',
-					isArray: true
+					isArray: false
 				},
 				getFavourites: {
 					method: 'GET',

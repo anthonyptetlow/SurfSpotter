@@ -14,18 +14,23 @@ angular.module('surfspotter').controller('LocationsController', [
             if(partial.length > 0) {
                 currentQuery = $timeout(function () {
                     SurfService.findLocations(partial).then(function (data) {
-                        Locations.locations = data;
+                        Locations.result = data;
                     });
                 }, 300);
             } else {
-                Locations.locations = [];
+                Locations.result.locations = [];
+                Locations.result.regions = [];
             }
 
         };
 
-        $rootScope.$on('$stateChangeSuccess', function() {
+        Locations.clearResults = function () {
             delete Locations.locationQuery;
-            delete Locations.locations;
+            delete Locations.result;
+        };
+
+        $rootScope.$on('$stateChangeSuccess', function() {
+            Locations.clearResults();
         });
     }
 ]);
