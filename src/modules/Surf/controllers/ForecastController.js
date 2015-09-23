@@ -1,9 +1,10 @@
 angular.module('surfspotter').controller('ForecastController', [
 	'$state',
+	'$filter',
 	'SurfService',
 	'MetadataService',
 	'forecast',
-	function ($state, SurfService, MetadataService, forecast) {
+	function ($state, $filter, SurfService, MetadataService, forecast) {
 		var Forecast = this;
 		angular.extend(Forecast, forecast);
 
@@ -17,7 +18,7 @@ angular.module('surfspotter').controller('ForecastController', [
 
 		Forecast.zoom = 10;
 
-		Forecast.forecast[0].expanded = true;
+		$filter('orderBy')(Forecast.forecast, 'date')[0].expanded = true;
 
 		Forecast.setFavorite = function (isFavourite) {
 			if (isFavourite) {

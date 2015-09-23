@@ -32,11 +32,11 @@
 	<div class="row">
 		<div class="column-4">
 			<div class="card">
-				<div class="forecast card__section" data-ng-repeat="day in Forecast.forecast">
+				<div class="forecast card__section" data-ng-repeat="day in Forecast.forecast | orderBy: 'date'">
 
 					<div class="pointer" data-ng-click="day.expanded = !day.expanded;">
 						<div class="forecast__date">
-							<span data-ng-bind="$first ? 'Today' : (day.date | date:'EEEE')">Today</span>
+							<span data-ng-bind="$first ? 'Today' : (day.date | date:'EEEE')"></span>
 						</div>
 
 						<span class="pull-right twice" data-ng-class="{'icon-angle-up': !day.expanded, 'icon-angle-down': day.expanded}"></span>
