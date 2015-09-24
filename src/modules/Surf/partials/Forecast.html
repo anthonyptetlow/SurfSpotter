@@ -1,34 +1,40 @@
-<div class="grid">
-	<div class="row">
-		<div class="column-4">
-			<div class="forecast__header clearfix">
+<div style="background-image: url('{{Forecast.location.image.url}}')" data-ng-class="{'forecast__head': Forecast.location.image.url}">
+	<div data-ng-class="{'forecast__head-wrapper': Forecast.location.image.url}">
 
-				<h1 class="forecast__title" data-ng-bind="Forecast.location.name"></h1>
-				<div class="forecast__regions">
-					<span data-ng-repeat="ancestor in Forecast.location.region.ancestors">
-						<span data-ng-bind="ancestor.name + '  > '"></span>
-					</span>
-					<span data-ng-bind="Forecast.location.region.name"></span>
-				</div>
+		<div class="grid">
+			<div class="row">
+				<div class="column-6">
+					<div class="forecast__header clearfix">
 
-				<div class="forecast__actions">
-					<button class="btn btn__icon" data-ng-if="Auth.isSignedin()"
-						data-ng-click="Forecast.setFavorite(!Forecast.location.isFavourite)"
-						data-ng-class="{
-										'btn__icon--remove': Forecast.location.isFavourite,
-										'btn__icon--add': !Forecast.location.isFavourite }"><!--
-						 --><span class="icon" data-ng-class="{
-							'btn__icon--minus': Forecast.location.isFavourite,
-							'btn__icon--plus': !Forecast.location.isFavourite}">
-						</span>
-						<span class="star"></span>
-					</button>
+						<h1 class="forecast__title" data-ng-bind="Forecast.location.name"></h1>
+						<div class="forecast__regions">
+							<span data-ng-repeat="ancestor in Forecast.location.region.ancestors">
+								<span data-ng-bind="ancestor.name + '  > '"></span>
+							</span>
+							<span data-ng-bind="Forecast.location.region.name"></span>
+						</div>
+
+						<div class="forecast__actions">
+							<button class="btn btn__icon" data-ng-if="Auth.isSignedin()"
+								data-ng-click="Forecast.setFavorite(!Forecast.location.isFavourite)"
+								data-ng-class="{
+												'btn__icon--remove': Forecast.location.isFavourite,
+												'btn__icon--add': !Forecast.location.isFavourite }"><!--
+								 --><span class="icon" data-ng-class="{
+									'btn__icon--minus': Forecast.location.isFavourite,
+									'btn__icon--plus': !Forecast.location.isFavourite}">
+								</span>
+								<span class="star"></span>
+							</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 
-
+<div class="grid">
 	<div class="row">
 		<div class="column-4">
 			<div class="card">
@@ -69,13 +75,6 @@
 					<ui-gmap-google-map center='Forecast.location.coordinate' zoom="Forecast.zoom">
 						<ui-gmap-marker idKey="'location'" coords='Forecast.location.coordinate'></ui-gmap-marker>
 					</ui-gmap-google-map>
-				</div>
-			</div>
-
-			<div class="card" data-ng-if="Forecast.location.image">
-				<div class="card__section">
-					<span data-url="{{Forecast.location.image.url}}" data-image-width="{{Forecast.location.image.width}}" data-image-height="{{Forecast.location.image.height}}" image></span>
-
 				</div>
 			</div>
 		</div>

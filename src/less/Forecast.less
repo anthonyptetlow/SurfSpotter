@@ -5,6 +5,22 @@
 	position: relative;
 }
 
+.forecast__head {
+	background-size: cover;
+    background-position: center;
+    background-position-y: 70%;
+    margin-bottom: 20px;
+	color: @white;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+}
+
+
+.forecast__head-wrapper {
+	background-color: rgba(0, 0, 0, 0.3);
+    padding-top: 100px;
+}
+
+
 .forecast__rating {
 	float: right;
 }
@@ -46,8 +62,9 @@
 	}
 
 	.forecast__actions {
-		margin-top: 30px;
+		// margin-top: 30px;
 		right: 0;
+		bottom: 0;
 		position: absolute;
 		width: auto;
 	}
@@ -56,6 +73,10 @@
 		float: left;
 		display: inline-block;
 		margin-right: 60px;
+	}
+
+	.forecast__head-wrapper {
+	    padding-top: 200px;
 	}
 }
 
