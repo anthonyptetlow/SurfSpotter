@@ -651,8 +651,7 @@ a {
 }
 .btn__icon {
   background-color: transparent;
-  color: #3e78e5;
-  font-size: 2em;
+  color: #ffffff;
   padding: 0;
 }
 .btn__icon:hover {
@@ -673,7 +672,7 @@ a {
 .btn__icon--plus:after {
   content: "";
   position: absolute;
-  background-color: #3e78e5;
+  background-color: #ffffff;
   width: 16px;
   height: 2px;
   top: 7px;
@@ -682,7 +681,7 @@ a {
 .btn__icon--plus:before {
   content: "";
   position: absolute;
-  background-color: #3e78e5;
+  background-color: #ffffff;
   width: 2px;
   height: 16px;
   left: 7px;
@@ -719,7 +718,7 @@ a {
 .btn__icon--minus:after {
   content: "";
   position: absolute;
-  background-color: #3e78e5;
+  background-color: #ffffff;
   width: 16px;
   height: 2px;
   top: 7px;
@@ -900,6 +899,9 @@ a {
 .navbar__item--icon {
   margin: 0;
   font-size: 1.5em;
+}
+.navbar__item--icon .icon-star::before {
+  vertical-align: middle;
 }
 .navbar__logo {
   display: inline-block;
@@ -1198,6 +1200,22 @@ a.star:hover {
   padding: 10px;
   position: relative;
 }
+.forecast__head {
+  background-size: cover;
+  background-position: center;
+  background-position-y: 70%;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+.forecast__head .icon-star,
+.forecast__head .icon-star-empty {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+.forecast__head-wrapper {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding-top: 100px;
+}
 .forecast__rating {
   float: right;
 }
@@ -1227,15 +1245,17 @@ a.star:hover {
     position: relative;
   }
   .forecast__actions {
-    margin-top: 30px;
     right: 0;
+    bottom: 0;
     position: absolute;
     width: auto;
   }
   .forecast__title {
     float: left;
     display: inline-block;
-    margin-right: 60px;
+  }
+  .forecast__head-wrapper {
+    padding-top: 200px;
   }
 }
 .angular-google-map-container {
