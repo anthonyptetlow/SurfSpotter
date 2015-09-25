@@ -6,26 +6,21 @@
 				<div class="column-6">
 					<div class="forecast__header clearfix">
 
-						<h1 class="forecast__title" data-ng-bind="Forecast.location.name"></h1>
+						<h1 class="forecast__title">
+							<span data-ng-bind="Forecast.location.name"></span>
+							<button class="btn btn__icon" data-ng-if="Auth.isSignedin()"
+								data-ng-click="Forecast.setFavorite(!Forecast.location.isFavourite)"
+								data-ng-class="{
+												'btn__icon--remove icon-star': Forecast.location.isFavourite,
+												'btn__icon--add icon-star-empty': !Forecast.location.isFavourite }">
+							</button>
+						</h1>
+
 						<div class="forecast__regions">
 							<span data-ng-repeat="ancestor in Forecast.location.region.ancestors">
 								<span data-ng-bind="ancestor.name + '  > '"></span>
 							</span>
 							<span data-ng-bind="Forecast.location.region.name"></span>
-						</div>
-
-						<div class="forecast__actions">
-							<button class="btn btn__icon" data-ng-if="Auth.isSignedin()"
-								data-ng-click="Forecast.setFavorite(!Forecast.location.isFavourite)"
-								data-ng-class="{
-												'btn__icon--remove': Forecast.location.isFavourite,
-												'btn__icon--add': !Forecast.location.isFavourite }"><!--
-								 --><span class="icon" data-ng-class="{
-									'btn__icon--minus': Forecast.location.isFavourite,
-									'btn__icon--plus': !Forecast.location.isFavourite}">
-								</span>
-								<span class="star"></span>
-							</button>
 						</div>
 					</div>
 				</div>
