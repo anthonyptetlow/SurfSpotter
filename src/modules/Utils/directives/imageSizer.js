@@ -22,6 +22,10 @@ angular.module('surfspotter').directive('image', [
 			replace: true,
 			link: function($scope, element, attrs) {
 				attrs.$set('height', element[0].offsetWidth * ($scope.imageHeight / $scope.imageWidth));
+				//Once loaded reset height to auto
+				element.bind('load', function() {
+					attrs.$set('height', 'auto');
+				});
 			}
 		};
 	}
