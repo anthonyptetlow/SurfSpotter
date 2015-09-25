@@ -73,6 +73,20 @@ angular.module('surfspotter', [
 			}]
 		}
 	})
+	.state('region', {
+		url: '/region/:regionName/:regionId',
+		views: {
+			'content': {
+				templateUrl: 'modules/Surf/partials/Region.html',
+				controller: 'RegionController as Region'
+			}
+		},
+		resolve: {
+			region: ['$stateParams', 'SurfService', function ($stateParams, SurfService) {
+				return SurfService.getRegion($stateParams.regionId);
+			}]
+		}
+	})
 	.state('signIn', {
 		url: '/signIn',
 		views: {

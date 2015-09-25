@@ -5,6 +5,7 @@ angular.module('surfspotter').service('SurfService', [
 	function ($http, $q, $resource) {
 		var surfVersion = 'v0.2',
 			forecast = $resource('/api/surf/v0.2/forecast/:locationId', {}),
+			region = $resource('/api/surf/v0.2/regions/:regionId', {}),
 			location = $resource('/api/surf/' + surfVersion + '/locations/:locationId', {}, {
 				find: {
 					method: 'GET',
@@ -26,39 +27,34 @@ angular.module('surfspotter').service('SurfService', [
 				}
 			});
 
-		function getForecast(locationId) {
+		this.getForecast = function (locationId) {
 			return forecast.get({locationId: locationId}).$promise;
-		}
+		};
 
-		function findLocations(partial) {
+		this.findLocations = function (partial) {
 			return location.find({partial: partial}).$promise;
-		}
+		};
 
-		function getLocation(locationId) {
+		this.getLocation = function (locationId) {
 			return location.get({locationId: locationId}).$promise;
-		}
+		};
 
-		function saveFavourite(locationId) {
+		this.saveFavourite = function (locationId) {
 			return location.setFavourite({locationId: locationId}).$promise;
-		}
-		function getFavourites() {
+		};
+		this.getFavourites = function () {
 			return location.getFavourites().$promise;
-		}
-		function removeFavourite(locationId) {
+		};
+		this.removeFavourite = function (locationId) {
 			return location.removeFavourite({locationId: locationId}).$promise;
-		}
+		};
 
-		function getAllLocations() {
+		this.getAllLocations = function () {
 			return location.query().$promise;
-		}
-		return {
-			getForecast: getForecast,
-			findLocations: findLocations,
-			getFavourites: getFavourites,
-			saveFavourite: saveFavourite,
-			removeFavourite: removeFavourite,
-			getLocation: getLocation,
-			getAllLocations: getAllLocations
+		};
+
+		this.getRegion = function (regionId) {
+			return region.get({regionId: regionId}).$promise;
 		};
 	}
 ]);

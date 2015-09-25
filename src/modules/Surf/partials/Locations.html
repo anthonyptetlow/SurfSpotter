@@ -6,8 +6,8 @@
 
 
 	<div class="navbar__search__dropdown" data-ng-class="{'expanded': Locations.result.locations.length > 0}">
-		<!-- <h4 class="navbar__search__dropdown__location" data-ng-if="Locations.result.regions.length > 0">Regions</h4> -->
-			<!-- <a class="text-center navbar__search__dropdown__location" data-ng-repeat="region in Locations.result.regions | orderBy:'name'"  data-ng-bind="region.name"></a> -->
+		<h4 class="navbar__search__dropdown__location" data-ng-if="Locations.result.regions.length > 0">Regions</h4>
+			<a class="text-center navbar__search__dropdown__location" data-ng-repeat="region in Locations.result.regions | orderBy:'name'"   data-ui-sref="region({regionName: '{{region.name | spaceToDash}}', regionId: '{{region._id}}' })" data-ng-bind="region.name"></a>
 		<h4 class="navbar__search__dropdown__location" data-ng-if="Locations.result.locations.length > 0">Spots</h4>
 			<a class="text-center navbar__search__dropdown__location" data-ng-repeat="location in Locations.result.locations | orderBy:'name'" data-ui-sref="forecast({spotName: '{{location.name | spaceToDash}}', locationId: '{{location._id}}' })" data-ng-bind="location.name"></a>
 	</div>
