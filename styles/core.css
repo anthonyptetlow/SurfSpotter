@@ -508,7 +508,7 @@ a {
 /* Attribute selector */
 [class*='column-'] {
   float: left;
-  padding: 0 10px;
+  padding: 0 5px;
   width: 100%;
 }
 .grid,
@@ -540,7 +540,7 @@ a {
   clear: both;
 }
 .row {
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 .row:before,
 .row:after {
@@ -813,6 +813,7 @@ a {
   margin-bottom: 10px;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   border: 1px solid #f0f0f0;
+  display: block;
 }
 .card h1,
 .card h2,
@@ -1260,6 +1261,18 @@ a.star:hover {
 }
 .angular-google-map-container {
   height: 250px;
+}
+.location__card {
+  background-size: cover;
+  color: #ffffff;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+.location__card-link {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  color: #ffffff;
 }
 .favourite {
   margin-bottom: 10px;
