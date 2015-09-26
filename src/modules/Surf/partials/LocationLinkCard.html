@@ -1,0 +1,11 @@
+<a class="card location__card card__section--sides"
+	data-image-width="{{location.image.width}}"
+	data-image-height="{{location.image.height}}"
+	data-image-bg="{{location.image.url}}"
+	style=""
+	data-ui-sref="forecast({spotName: '{{location.name | spaceToDash}}', locationId: '{{location.id}}' })">
+
+	<h4 data-ng-bind="location.name"></h4>
+
+	<span class="btn btn__link location__card-link" >View Forecast</span>
+</a>

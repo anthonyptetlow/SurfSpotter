@@ -30,3 +30,30 @@ angular.module('surfspotter').directive('image', [
 		};
 	}
 ]);
+
+
+angular.module('surfspotter').directive('imageBg', [
+	function() {
+		// Runs during compile
+		return {
+			scope: {
+				imageWidth: '@',
+				imageHeight: '@',
+				imageBg:'@'
+			},
+	        controller: [ '$scope', '$element', '$window', function ($scope, $element, $window) {
+				$element.css('height', ($element[0].offsetWidth * ($scope.imageHeight / $scope.imageWidth)) + 'px');
+				$element.css('background-image', 'url(\'' + $scope.imageBg + '\')');
+
+				angular.element($window).bind('resize', function () {
+					$element.css('height', ($element[0].offsetWidth * ($scope.imageHeight / $scope.imageWidth)) + 'px');
+				});
+
+			}],
+			link: function($scope, element, attrs) {
+				// console.log(element);
+				// element.css('height', (element[0].offsetWidth * ($scope.imageHeight / $scope.imageWidth)) + 'px');
+			}
+		};
+	}
+]);
