@@ -32,7 +32,7 @@ angular.module('surfspotter').run(['$templateCache', function($templateCache) {
     '\n' +
     '	  ga(\'create\', \'UA-61456361-3\', \'auto\');\n' +
     '	}\n' +
-    '	</script><script src=./js/app.js></script></html>');
+    '	</script><script src=./js/app.js></script><script type=application/ld+json>{ "@context": "http://schema.org", "@type": "Organization", "name": "Surf Spotter", "url": "http://surfspotter.eu", "logo": "http://surfspotter.eu/assets/wave2.png", "sameAs" : [ "https://www.facebook.com/SurfSpotter-1630841030490571", "https://www.twitter.com/Surf_Spotter", "https://plus.google.com/+SurfspotterEu1" ] }</script></html>');
 }]);
 
 angular.module('surfspotter').run(['$templateCache', function($templateCache) {
