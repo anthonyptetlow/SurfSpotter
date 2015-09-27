@@ -1,8 +1,13 @@
 angular.module('surfspotter').controller('SignUpController', [
 	'$state',
 	'UserService',
-	function ($state, UserService) {
+	'MetadataService',
+	function ($state, UserService, MetadataService) {
 		var SignUp = this;
+
+		MetadataService.setTitle('Sign Up');
+		MetadataService.setDescription('Sign up to Surf Spotter to save your favorite locations.');
+		MetadataService.addKeyword('signup');
 
 		SignUp.register = function (user) {
 			SignUp.error = {};

@@ -3,7 +3,14 @@ angular.module('surfspotter').controller('SignInController', [
 	'AuthService',
 	'UserService',
 	'NotificationService',
-	function ($state, AuthService, UserService, NotificationService) {
+	'MetadataService',
+	function ($state, AuthService, UserService, NotificationService, MetadataService) {
+
+		MetadataService.setTitle('Sign In');
+		MetadataService.setDescription('Sign in to Surf Spotter to save your favorite locations.');
+		MetadataService.addKeyword('signin');
+		MetadataService.addKeyword('login');
+
 		var SignIn = this;
 		SignIn.error = {};
 		SignIn.authenticate = function (username, password) {
