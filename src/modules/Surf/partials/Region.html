@@ -2,6 +2,15 @@
 	<div class="row">
 		<div class="column-6">
 			<h1 data-ng-bind="Region.name"></h1>
+
+			<span data-ng-repeat="ancestor in Region.ancestors">
+
+				<a class="region__breadcrumb" data-ui-sref="region({regionName: '{{ancestor.name | spaceToDash}}', regionId: '{{ancestor._id}}' })">
+					<span data-ng-bind="ancestor.name"></span><!--
+				 --></a><!--
+				 --><span class="icon-angle-right" data-ng-if="!$last"></span>
+			</span>
+
 		</div>
 	</div>
 </div>

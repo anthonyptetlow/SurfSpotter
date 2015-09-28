@@ -17,9 +17,14 @@
 
 						<div class="forecast__regions">
 							<span data-ng-repeat="ancestor in Forecast.location.region.ancestors">
-								<span data-ng-bind="ancestor.name + '  > '"></span>
+
+								<a class="region__breadcrumb" data-ui-sref="region({regionName: '{{ancestor.name | spaceToDash}}', regionId: '{{ancestor._id}}' })">
+									<span data-ng-bind="ancestor.name"></span><!--
+								 --></a><!--
+
+								 --><span class="icon-angle-right"></span>
 							</span>
-							<span data-ng-bind="Forecast.location.region.name"></span>
+							<a class="region__breadcrumb" data-ng-bind="Forecast.location.region.name" data-ui-sref="region({regionName: '{{Forecast.location.region.name | spaceToDash}}', regionId: '{{Forecast.location.region._id}}' })"></a>
 						</div>
 					</div>
 				</div>
