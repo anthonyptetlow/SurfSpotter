@@ -1,33 +1,127 @@
 <html ng-app="surfspotter" class="ng-scope" hola_ext_inject="disabled"><head>
 		<title>SurfSpotter</title>
 		<meta http-equiv="Content-Type" content="text/html">
+		<link rel="icon" type="image/png" href="/assets/wave2.png">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Get notifications or emails about your favourite surf spots when the surf is good.">
 		<meta name="author" content="Anthony P Tetlow">
-		<meta name="keywords" content="surf report, surf forecast, surfing, surf notification">
+		<meta name="keywords" content="surf report, surf forecast, surfing, surf notification, style guide">
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:400,700" media="all"><link rel="stylesheet" href="/styles/core.css" media="all"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:400,700" media="all"><link rel="stylesheet" href="/styles/core.css" media="all">
-<script>
-(function(u){function loadCSS(e,t,n){"use strict";function r(){for(var t,i=0;i<d.length;i++)d[i].href&&d[i].href.indexOf(e)>-1&&(t=!0);t?o.media=n||"all":setTimeout(r)}var o=window.document.createElement("link"),i=t||window.document.getElementsByTagName("script")[0],d=window.document.styleSheets;return o.rel="stylesheet",o.href=e,o.media="only x",i.parentNode.insertBefore(o,i),r(),o}for(var i in u){loadCSS(u[i]);}}(['https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:400,700','/styles/core.css']));
-</script>
-	<noscript>
-	&amp;lt;link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:400,700" rel="stylesheet" type="text/css"&amp;gt;
-	&amp;lt;link rel="stylesheet" href="/styles/core.css"&amp;gt;
-	</noscript>
-
+		<link href='https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="/styles/core.css">
+
 
     <base href="/">
 	</head>
-	<body>
+	<body class="content__wrapper">
+
+
+		<nav class="navbar">
+			<div class="container">
+				<span class="navbar__logo">
+					<img class="navbar__logo-image" src="/assets/wave2.png" alt="">
+					<span class="navbar__logo-text">Surf Spotter</span>
+				</span>
+			</div>
+		</nav>
+
 		<div class="grid">
 			<div class="row">
 				<div class="column-6">
-					<h1>Styles</h1>
+					<h1>Style Guide</h1>
 				</div>
 			</div>
 		</div>
+
+		<div class="grid">
+			<div class="row column-6">
+				<h2>Color Swatches</h2>
+			</div>
+			<div class="row text-center">
+				<div class="column-1">
+					<div class="card color__swatch color__swatch--blue">#3E78E5</div>
+				</div>
+				<div class="column-1">
+					<div class="card color__swatch color__swatch--blue-dark">#1A4698</div>
+				</div>
+				<div class="column-1">
+					<div class="card color__swatch color__swatch--salmon">#E96C57</div>
+				</div>
+				<div class="column-1">
+					<div class="card color__swatch color__swatch--green">#85B21E</div>
+				</div>
+				<div class="column-1">
+					<div class="card color__swatch color__swatch--green-dark">#749822</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="grid">
+			<div class="row">
+				<div class="column-6">
+					<h2>Buttons</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column-6">
+					<a href="" class="btn btn__primary">Button</a>
+					<a href="" class="btn btn__link">Link</a>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="grid">
+			<div class="row">
+				<div class="column-6">
+					<h2>Forms</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="column-6">
+
+					<form class="form" role="form">
+
+						<div class="form__input__group">
+						    <label class="form__label" for="inputUsername">Username</label>
+
+							<input type="text" class="form__input" id="inputUsername" required>
+
+						</div>
+
+						<div class="form__input__group has-error">
+						    <label class="form__label" for="inputEmail1">Email address</label>
+
+							<input type="email" class="form__input" id="inputEmail1" required>
+
+							<p class="form__input__help"> Some error help message</p>
+						</div>
+						<input type="submit" class="btn form__input--submit"></input>
+					</form>
+
+
+
+				</div>
+			</div>
+		</div>
+
+		<div class="grid">
+			<div class="column-6">
+				<h2>Cards</h2>
+			</div>
+			<div class="column-2">
+				<div class="card card__section">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic nihil provident et sapiente quia. Dolores, ea quod laborum sint debitis ut temporibus totam eaque soluta quasi explicabo nostrum, quae doloribus.</div>
+			</div>
+			<div class="column-2">
+				<div class="card card__section">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic nihil provident et sapiente quia. Dolores, ea quod laborum sint debitis ut temporibus totam eaque soluta quasi explicabo nostrum, quae doloribus.</div>
+			</div>
+			<div class="column-2">
+				<div class="card card__section">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic nihil provident et sapiente quia. Dolores, ea quod laborum sint debitis ut temporibus totam eaque soluta quasi explicabo nostrum, quae doloribus.</div>
+			</div>
+		</div>
+
 
 		<div class="grid">
 			<div class="column-6">
@@ -238,7 +332,9 @@
 
 
 		<div class="grid">
-			<h2>Offsets</h2>
+			<div class="column-6">
+				<h2>Offsets</h2>
+			</div>
 		</div>
 		<div class="grid">
 			<div class="column-5 offset-1"><div class="card tall"></div></div>

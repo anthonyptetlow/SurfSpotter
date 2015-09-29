@@ -34,7 +34,9 @@
 </div>
 
 <div class="grid">
-	<div class="row">
+		<div class="column-2 column-desktop-right">
+			<div social-share></div>
+		</div>
 		<div class="column-4">
 			<div class="card">
 				<div class="forecast card__section" data-ng-repeat="day in Forecast.forecast | orderBy: 'date'">
@@ -67,13 +69,13 @@
 				</div>
 			</div>
 		</div>
-		<div class="column-2">
 
+		<div class="column-2">
 			<div class="card">
 				<ui-gmap-google-map center='Forecast.location.coordinate' zoom="Forecast.zoom">
 					<ui-gmap-marker idKey="'location'" coords='Forecast.location.coordinate'></ui-gmap-marker>
 				</ui-gmap-google-map>
 			</div>
 		</div>
-	</div>
+
 </div>
