@@ -34,6 +34,7 @@
 		<link rel="stylesheet" href="/styles/core.css">
 
 	    <base href="/">
+	    <meta name="fragment" content="!">
 	</head>
 	<body class="body" data-ng-controller="AuthController as Auth">
 		<div class="content__wrapper">
@@ -43,8 +44,17 @@
 			<div class="push"></div>
 		</div>
 		<footer class="footer">
-			Built by <a class="footer__link" href="http://anthonyptetlow.com">this guy</a>
-			with <a class="footer__link" href="http://www.worldweatheronline.com/">World Weather Online</a>
+			<div class="grid">
+				<div class="footer_social">
+					<a class="icon-facebook" target="_blank" href="https://www.facebook.com/SurfSpotter-1630841030490571"></a>
+					<a class="icon-twitter" target="_blank" href="https://www.twitter.com/Surf_Spotter"></a>
+					<a class="icon-gplus" target="_blank" href="https://plus.google.com/+SurfspotterEu1"></a>
+				</div>
+				<div class="footer-text">
+					Built by <a class="footer__link" target="_blank" href="http://anthonyptetlow.com">this guy</a>
+					with <a class="footer__link" target="_blank" href="http://www.worldweatheronline.com/">World Weather Online</a>
+				</div>
+			</div>
 		</footer>
 	</body>
 	<script>
