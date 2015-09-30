@@ -1331,6 +1331,9 @@ h4.card__social-title {
   float: left;
   width: 100%;
 }
+.forecast__regions .region__breadcrumb {
+  color: #ffffff;
+}
 .forecast__actions {
   float: left;
   width: 100%;
@@ -1354,6 +1357,20 @@ h4.card__social-title {
     padding-top: 200px;
   }
 }
+/* Region View */
+.forecast__regions {
+  list-style-type: none;
+  padding: 0;
+}
+.forecast__regions li {
+  display: inline-block;
+}
+.region__breadcrumb {
+  white-space: nowrap;
+}
+.region__breadcrumb:hover {
+  text-decoration: underline;
+}
 .angular-google-map-container {
   height: 250px;
 }
@@ -1368,6 +1385,20 @@ h4.card__social-title {
   right: 10px;
   bottom: 0;
   color: #ffffff;
+}
+/* Region View */
+.region__breadcrumbs {
+  list-style-type: none;
+  padding: 0;
+}
+.region__breadcrumbs li {
+  display: inline-block;
+}
+.region__breadcrumb {
+  white-space: nowrap;
+}
+.region__breadcrumb:hover {
+  text-decoration: underline;
 }
 .favourite {
   margin-bottom: 10px;
