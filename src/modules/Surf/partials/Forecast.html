@@ -15,17 +15,52 @@
 							</button>
 						</h1>
 
-						<div class="forecast__regions">
-							<span data-ng-repeat="ancestor in Forecast.location.region.ancestors">
+						<ol class="forecast__regions" vocab="http://schema.org/" typeof="BreadcrumbList">
+							<li data-ng-repeat="ancestor in Forecast.location.region.ancestors" property="itemListElement" typeof="ListItem">
 
-								<a class="region__breadcrumb" data-ui-sref="region({regionName: '{{ancestor.name | spaceToDash}}', regionId: '{{ancestor._id}}' })">
-									<span data-ng-bind="ancestor.name"></span><!--
-								 --></a><!--
-
+								<a class="region__breadcrumb" data-ui-sref="region({regionName: '{{ancestor.name | spaceToDash}}', regionId: '{{ancestor._id}}' })" property="item" typeof="WebPage">
+									<span data-ng-bind="ancestor.name" property="name"></span><!--
+								 --></a><meta property="position" content="{{$index}}"><!--
 								 --><span class="icon-angle-right"></span>
-							</span>
-							<a class="region__breadcrumb" data-ng-bind="Forecast.location.region.name" data-ui-sref="region({regionName: '{{Forecast.location.region.name | spaceToDash}}', regionId: '{{Forecast.location.region._id}}' })"></a>
+							</li>
+							<li property="itemListElement" typeof="ListItem">
+								<a class="region__breadcrumb" data-ui-sref="region({regionName: '{{Forecast.location.region.name | spaceToDash}}', regionId: '{{Forecast.location.region._id}}' })" property="item" typeof="WebPage">
+									<span data-ng-bind="Forecast.location.region.name" property="name"></span>
+								</a><meta property="position" content="{{Forecast.location.region.ancestors.length}}">
+							</li>
 						</div>
+<!--
+
+<ol vocab="http://schema.org/" typeof="BreadcrumbList">
+
+
+
+
+  <li property="itemListElement" typeof="ListItem">
+    <a property="item" typeof="WebPage"
+        href="https://example.com/arts">
+
+      <span property="name">Arts</span></a>
+    <meta property="position" content="1">
+  </li>
+  ›
+  <li property="itemListElement" typeof="ListItem">
+    <a property="item" typeof="WebPage"
+        href="https://example.com/arts/books">
+      <span property="name">Books</span></a>
+    <meta property="position" content="2">
+  </li>
+  ›
+  <li property="itemListElement" typeof="ListItem">
+    <a property="item" typeof="WebPage"
+        href="https://example.com/arts/books/poetry">
+      <span property="name">Poetry</span></a>
+    <meta property="position" content="3">
+  </li>
+</ol> -->
+
+
+
 					</div>
 				</div>
 			</div>

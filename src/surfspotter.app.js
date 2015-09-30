@@ -84,6 +84,9 @@ angular.module('surfspotter', [
 		resolve: {
 			region: ['$stateParams', 'SurfService', function ($stateParams, SurfService) {
 				return SurfService.getRegion($stateParams.regionId);
+			}],
+			locations: ['$stateParams', 'SurfService', function ($stateParams, SurfService) {
+				return SurfService.getLocationsInRegion($stateParams.regionId);
 			}]
 		}
 	})

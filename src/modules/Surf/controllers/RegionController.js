@@ -1,6 +1,8 @@
 angular.module('surfspotter').controller('RegionController', [
     'region',
-    function (region) {
+    'locations',
+    function (region, locations) {
         angular.extend(this, region);
+        this.locations = locations;
     }
 ]);

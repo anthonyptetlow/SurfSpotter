@@ -5,7 +5,7 @@
 			<div data-ng-repeat="favourite in Favourites.list" class="favourite clearfix">
 					<span class="favourite__name" data-ng-bind="favourite.location.name"></span>
 					<div class="pull-right">
-						<a class="btn btn__link" data-ui-sref="forecast({spotName: '{{favourite.location.name | spaceToDash}}', locationId: '{{favourite.location._id}}' })">View forecast</a>
+						<a class="btn btn__link" data-ui-sref="forecast({spotName: '{{favourite.location.name | spaceToDash}}', locationId: '{{favourite.location.id}}' })">View forecast</a>
 						<button class="btn btn__link" data-ng-click="Favourites.remove(favourite.location)">Delete</button>
 					</div>
 				</div>

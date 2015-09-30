@@ -5,7 +5,13 @@ angular.module('surfspotter').service('SurfService', [
 	function ($http, $q, $resource) {
 		var surfVersion = 'v0.2',
 			forecast = $resource('/api/surf/v0.2/forecast/:locationId', {}),
-			region = $resource('/api/surf/v0.2/regions/:regionId', {}),
+			region = $resource('/api/surf/v0.2/regions/:regionId', {}, {
+				getLocationsInRegion: {
+					method: 'GET',
+					url: 'api/surf/' + surfVersion + '/regions/locations/:regionId',
+					isArray: true
+				}
+			}),
 			location = $resource('/api/surf/' + surfVersion + '/locations/:locationId', {}, {
 				find: {
 					method: 'GET',
@@ -55,6 +61,10 @@ angular.module('surfspotter').service('SurfService', [
 
 		this.getRegion = function (regionId) {
 			return region.get({regionId: regionId}).$promise;
+		};
+
+		this.getLocationsInRegion = function (regionId) {
+			return region.getLocationsInRegion({regionId: regionId}).$promise;
 		};
 	}
 ]);

@@ -3,14 +3,22 @@
 		<div class="column-6">
 			<h1 data-ng-bind="Region.name"></h1>
 
-			<span data-ng-repeat="ancestor in Region.ancestors">
 
-				<a class="region__breadcrumb" data-ui-sref="region({regionName: '{{ancestor.name | spaceToDash}}', regionId: '{{ancestor._id}}' })">
-					<span data-ng-bind="ancestor.name"></span><!--
-				 --></a><!--
+			<ol class="region__breadcrumbs" vocab="http://schema.org/" typeof="BreadcrumbList">
+				<li data-ng-repeat="ancestor in Region.ancestors" property="itemListElement" typeof="ListItem">
+					<a class="region__breadcrumb" data-ui-sref="region({regionName: '{{ancestor.name | spaceToDash}}', regionId: '{{ancestor._id}}' })" property="item" typeof="WebPage">
+						<span data-ng-bind="ancestor.name" property="name"></span><!--
+				 --></a><meta property="position" content="{{$index}}"><!--
+
 				 --><span class="icon-angle-right" data-ng-if="!$last"></span>
-			</span>
+				</li>
+			</ol>
 
+		</div>
+	</div>
+	<div class="row">
+		<div class="column-2" data-ng-repeat="location in Region.locations">
+			<div data-location-link-card data-location="location"></div>
 		</div>
 	</div>
 </div>

@@ -89,20 +89,28 @@
 	}
 }
 
-
-.angular-google-map-container { height: 250px; }
-
-
-
 /* Region View */
-.region__breadcrumb {
-	margin: 0 5px;
-	white-space: nowrap;
+.forecast__regions {
+    list-style-type: none;
+    padding: 0;
 
+    li {
+		display: inline-block;
+    }
+}
+
+.region__breadcrumb {
+	// margin: 0 5px;
+	white-space: nowrap;
 	&:hover {
 		text-decoration: underline;
 	}
 }
+
+
+
+
+.angular-google-map-container { height: 250px; }
 
 
 .location__card {

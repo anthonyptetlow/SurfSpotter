@@ -8,7 +8,7 @@ angular.module('surfspotter').controller('FavouritesController', [
 		Favourites.list = favouritesList;
 
 		Favourites.remove = function (location) {
-			SurfService.removeFavourite(location._id).then(function () {
+			SurfService.removeFavourite(location.id).then(function () {
                 NotificationService.addToNextState(location.name + ' removed from favorites', 'success', 2000);
 				$state.reload();
 			}, function() {
