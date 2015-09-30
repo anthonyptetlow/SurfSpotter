@@ -1230,6 +1230,9 @@ a.star:hover {
   text-align: center;
   background-color: #e6e6e6;
 }
+.footer__link {
+  color: #1a4698;
+}
 .footer__link:hover {
   text-decoration: underline;
 }
@@ -1395,6 +1398,7 @@ h4.card__social-title {
   display: inline-block;
 }
 .region__breadcrumb {
+  color: #1a4698;
   white-space: nowrap;
 }
 .region__breadcrumb:hover {
