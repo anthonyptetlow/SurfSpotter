@@ -5,7 +5,7 @@
 			<span class="navbar__logo-text">Surf Spotter</span>
 		</a>
 
-		<ul data-ng-if="!NavigationBar.isUserAuthenticated()" class="navbar__group pull-right">
+		<!-- <ul data-ng-if="!NavigationBar.isUserAuthenticated()" class="navbar__group pull-right">
 			<li class="navbar__item" data-ui-sref-active="hide"><a data-ng-click="NavigationBar.signIn()">Sign In</a></li>
 		    <li class="navbar__item" data-ui-sref-active="hide"><a data-ng-click="NavigationBar.signUp()">Sign Up</a></li>
 		</ul>
@@ -13,7 +13,7 @@
 		<ul data-ng-if="NavigationBar.isUserAuthenticated()" class="navbar__group pull-right">
 			<li class="navbar__item--icon"><a class="icon-star" data-ui-sref="favourites"></a></li>
 	        <li class="navbar__item"><a data-ng-click="NavigationBar.signOut()"><span data-ng-bind="NavigationBar.getUser().username"></span> (Sign Out)</a></li>
-		</ul>
+		</ul> -->
 
 		<div data-location-search></div>
 	</div>
