@@ -888,7 +888,8 @@ a {
 }
 .navbar {
   width: 100%;
-  background-color: #3e78e5;
+  background: -webkit-linear-gradient(#3e78e5, #1a4698);
+  background: linear-gradient(#3e78e5, #1a4698);
   position: fixed;
   top: 0;
   z-index: 10;
@@ -951,7 +952,6 @@ a {
   width: 30px;
   margin: 10px 0 10px 10px;
   border-radius: 50%;
-  border: 2px solid #ffffff;
   vertical-align: middle;
 }
 .navbar__logo-text {
