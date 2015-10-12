@@ -36,7 +36,7 @@ angular.module('surfspotter').service('MetadataService', [
 		this.reset = function () {
 			Metadata = {
 				description: 'Your go to 7 day Surf forecast app. Get Notifications when the best waves for surfing are forecast to hit the shore. Never miss a good surf break again!',
-				image: '/assets/wave2.png',
+				image: '/assets/ios-icon-non-rounded.png',
 				keywords: ['surf report', 'surf forecast', 'surfing', 'surf notification', 'surf', 'waves']
 			};
 		};
