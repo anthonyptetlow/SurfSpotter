@@ -1,8 +1,9 @@
-<html ng-app="surfspotter">
+<!-- <!DOCTYPE html> -->
+<html data-ng-app="surfspotter">
 	<head data-ng-controller="MetadataController as Metadata">
 		<link rel="icon" type="image/png" href="/assets/icon-on-light.png">
 		<link rel="me" href="https://twitter.com/Surf_Spotter">
-		<meta http-equiv="Content-Type" content="text/html">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
 		<meta name="author" content="Anthony P Tetlow">
@@ -57,32 +58,32 @@
 				</div>
 			</div>
 		</footer>
+		<script>
+		if (document.domain === 'surfspotter.eu' && document.documentURI.indexOf('no-tracking') <= -1) {
+
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-61456361-3', 'auto');
+		}
+		</script>
+		<script src="./js/app.js"></script>
+
+		<script type="application/ld+json">
+	    {
+			"@context": "http://schema.org",
+			"@type": "Organization",
+			"name": "Surf Spotter",
+			"url": "http://surfspotter.eu",
+			"logo": "http://surfspotter.eu/assets/wave2.png",
+			"sameAs" : [
+			    "https://www.facebook.com/SurfSpotter-1630841030490571",
+			    "https://www.twitter.com/Surf_Spotter",
+			    "https://plus.google.com/+SurfspotterEu1"
+			]
+	    }
+	    </script>
 	</body>
-	<script>
-	if (document.domain === 'surfspotter.eu' && document.documentURI.indexOf('no-tracking') <= -1) {
-
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-61456361-3', 'auto');
-	}
-	</script>
-	<script src="./js/app.js"></script>
-
-	<script type="application/ld+json">
-    {
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "Surf Spotter",
-		"url": "http://surfspotter.eu",
-		"logo": "http://surfspotter.eu/assets/wave2.png",
-		"sameAs" : [
-		    "https://www.facebook.com/SurfSpotter-1630841030490571",
-		    "https://www.twitter.com/Surf_Spotter",
-		    "https://plus.google.com/+SurfspotterEu1"
-		]
-    }
-    </script>
 </html>
