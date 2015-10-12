@@ -1408,6 +1408,17 @@ h4.card__social-title {
   margin-bottom: 10px;
 }
 .favourite__name {
-  font-size: 16px;
   line-height: 40px;
+}
+.favourite_image {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-size: cover;
+  background-position: 50% 50%;
+  float: left;
+}
+.favourite__info {
+  padding-left: 110px;
+  padding-right: 10px;
 }
