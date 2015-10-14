@@ -27,7 +27,7 @@ angular.module('surfspotter').controller('MetadataController', [
 
 		Metadata.is404 = function () {
 			return $state.is('404');
-		}
+		};
 
 		$rootScope.$on('$stateChangeStart', MetadataService.reset);
 	}

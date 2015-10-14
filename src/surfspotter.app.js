@@ -41,7 +41,6 @@ angular.module('surfspotter', [
 		},
 		resolve: {
 			forecast: ['$stateParams', 'SurfService', function ($stateParams, SurfService) {
-				console.log($stateParams.spotMachineName);
 				return SurfService.getForecast($stateParams.spotMachineName);
 			}]
 		}
