@@ -1,9 +1,10 @@
 angular.module('surfspotter').controller('MetadataController', [
 	'$rootScope',
 	'$location',
+	'$state',
 	'$document',
 	'MetadataService',
-	function ($rootScope, $location, $document, MetadataService) {
+	function ($rootScope, $location, $state, $document, MetadataService) {
 		// console.log($location);
 		var Metadata = this;
 
@@ -22,6 +23,11 @@ angular.module('surfspotter').controller('MetadataController', [
 		Metadata.title = function () {
 			return angular.isDefined(MetadataService.getTitle()) ? MetadataService.getTitle() + ' | Surf Spotter' : 'Surf Spotter';
 		};
+
+
+		Metadata.is404 = function () {
+			return $state.is('404');
+		}
 
 		$rootScope.$on('$stateChangeStart', MetadataService.reset);
 	}

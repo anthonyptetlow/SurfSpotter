@@ -31,6 +31,8 @@
 		<meta name="twitter:description" content="{{Metadata.description()}}">
 		<meta name="twitter:image" content="{{Metadata.image()}}">
 
+		<meta data-ng-if="Metadata.is404()" name="prerender-status-code" content="404">
+
 
 		<link href='https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="/styles/core.css">
