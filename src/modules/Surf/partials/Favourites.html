@@ -9,8 +9,7 @@
 				<div class="favourite__info">
 
 					<h3 class="favourite__name favourite__spacer" data-ng-bind="favourite.location.name"></h3>
-
-					<a class="btn btn__link favourite__spacer" data-ui-sref="forecast({spotName: '{{favourite.location.name | spaceToDash}}', locationId: '{{favourite.location.id}}' })">View forecast</a>
+					<a class="btn btn__link favourite__spacer" data-ui-sref="forecast({spotMachineName: '{{favourite.location.machineName}}'})">View forecast</a>
 
 					<button class="btn btn__link pull-right favourite__spacer--right" data-ng-click="Favourites.remove(favourite.location)">Delete</button>
 				</div>

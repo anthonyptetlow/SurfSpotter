@@ -32,7 +32,7 @@ angular.module('surfspotter', [
 		}
 	})
 	.state('forecast', {
-		url: '/forecast/:spotName/:locationId',
+		url: '/forecast/:spotMachineName',
 		views: {
 			'content': {
 				templateUrl: 'modules/Surf/partials/Forecast.html',
@@ -41,7 +41,8 @@ angular.module('surfspotter', [
 		},
 		resolve: {
 			forecast: ['$stateParams', 'SurfService', function ($stateParams, SurfService) {
-				return SurfService.getForecast($stateParams.locationId);
+				console.log($stateParams.spotMachineName);
+				return SurfService.getForecast($stateParams.spotMachineName);
 			}]
 		}
 	})
@@ -74,7 +75,7 @@ angular.module('surfspotter', [
 		}
 	})
 	.state('region', {
-		url: '/region/:regionName/:regionId',
+		url: '/region/:regionMachineName',
 		views: {
 			'content': {
 				templateUrl: 'modules/Surf/partials/Region.html',
@@ -83,10 +84,14 @@ angular.module('surfspotter', [
 		},
 		resolve: {
 			region: ['$stateParams', 'SurfService', function ($stateParams, SurfService) {
-				return SurfService.getRegion($stateParams.regionId);
-			}],
-			locations: ['$stateParams', 'SurfService', function ($stateParams, SurfService) {
-				return SurfService.getLocationsInRegion($stateParams.regionId);
+				return SurfService.getRegion($stateParams.regionMachineName).then(function (region) {
+					return SurfService.getLocationsInRegion(region._id).then(function (locations) {
+						return {
+							region: region,
+							locations: locations
+						};
+					});
+				});
 			}]
 		}
 	})

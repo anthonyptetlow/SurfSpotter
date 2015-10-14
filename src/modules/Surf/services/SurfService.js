@@ -4,11 +4,11 @@ angular.module('surfspotter').service('SurfService', [
 	'$resource',
 	function ($http, $q, $resource) {
 		var surfVersion = 'v0.2',
-			forecast = $resource('/api/surf/v0.2/forecast/:locationId', {}),
-			region = $resource('/api/surf/v0.2/regions/:regionId', {}, {
+			forecast = $resource('/api/surf/v0.3/forecast/:spotMachineName', {}),
+			region = $resource('/api/surf/v0.3/regions/:regionMachineName', {}, {
 				getLocationsInRegion: {
 					method: 'GET',
-					url: 'api/surf/' + surfVersion + '/regions/locations/:regionId',
+					url: 'api/surf/v0.2/regions/locations/:regionId',
 					isArray: true
 				}
 			}),
@@ -33,8 +33,8 @@ angular.module('surfspotter').service('SurfService', [
 				}
 			});
 
-		this.getForecast = function (locationId) {
-			return forecast.get({locationId: locationId}).$promise;
+		this.getForecast = function (spotMachineName) {
+			return forecast.get({spotMachineName: spotMachineName}).$promise;
 		};
 
 		this.findLocations = function (partial) {
@@ -59,8 +59,8 @@ angular.module('surfspotter').service('SurfService', [
 			return location.query().$promise;
 		};
 
-		this.getRegion = function (regionId) {
-			return region.get({regionId: regionId}).$promise;
+		this.getRegion = function (regionMachineName) {
+			return region.get({regionMachineName: regionMachineName}).$promise;
 		};
 
 		this.getLocationsInRegion = function (regionId) {
