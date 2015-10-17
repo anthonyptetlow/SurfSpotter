@@ -29,38 +29,6 @@
 								</a><meta property="position" content="{{Forecast.location.region.ancestors.length}}">
 							</li>
 						</div>
-<!--
-
-<ol vocab="http://schema.org/" typeof="BreadcrumbList">
-
-
-
-
-  <li property="itemListElement" typeof="ListItem">
-    <a property="item" typeof="WebPage"
-        href="https://example.com/arts">
-
-      <span property="name">Arts</span></a>
-    <meta property="position" content="1">
-  </li>
-  ›
-  <li property="itemListElement" typeof="ListItem">
-    <a property="item" typeof="WebPage"
-        href="https://example.com/arts/books">
-      <span property="name">Books</span></a>
-    <meta property="position" content="2">
-  </li>
-  ›
-  <li property="itemListElement" typeof="ListItem">
-    <a property="item" typeof="WebPage"
-        href="https://example.com/arts/books/poetry">
-      <span property="name">Poetry</span></a>
-    <meta property="position" content="3">
-  </li>
-</ol> -->
-
-
-
 					</div>
 				</div>
 			</div>
@@ -70,9 +38,10 @@
 
 <div class="grid">
 		<div class="column-2 column-desktop-right">
-			<div social-share></div>
+			<div data-social-share></div>
 		</div>
 		<div class="column-4">
+			<h2>7 day surf forecast</h2>
 			<div class="card">
 				<div class="forecast card__section" data-ng-repeat="day in Forecast.forecast | orderBy: 'date'">
 
@@ -88,10 +57,12 @@
 
 					<div class="forecast__details animate-slide hide-slide" data-ng-hide="!day.expanded">
 						<div class="card__horizontal-section">
-							<h5>Swell:</h5>
+							<h5>Swell</h5>
 							<div class="">Height: <span data-ng-bind="day.hourly[0].swell.height"></span>m</div>
 
 							<div class="">Period: <span data-ng-bind="day.hourly[0].swell.period"></span>s</div>
+
+							<div class="">Direction: <span data-ng-bind="day.hourly[0].swell.direction"></span>&deg;</div>
 						</div>
 
 						<div class="card__horizontal-section">

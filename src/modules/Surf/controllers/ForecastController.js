@@ -10,7 +10,7 @@ angular.module('surfspotter').controller('ForecastController', [
 
 		MetadataService.setImage(forecast.location.image.url);
 		MetadataService.setTitle(forecast.location.name + ' Surf Forecast');
-		MetadataService.setDescription('A detailed free surfing forcast for ' + forecast.location.name);
+		MetadataService.setDescription('A detailed 7 day free surf and swell forcast for ' + forecast.location.name);
 		MetadataService.addKeyword(forecast.location.name);
 		MetadataService.addKeyword('swell');
 		MetadataService.addKeyword('wind');
