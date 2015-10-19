@@ -41,8 +41,7 @@ angular.module('surfspotter').controller('SignInController', [
 							break;
 						case 'AUTH_FAIL':
 						default:
-							// NotificationService.addToNextState('Unable to login at this time', 'danger', 4000);
-							SignIn.error.username = 'Unable to login at this time';
+							NotificationService.addToNextState('We are having techincal problems and are to login at this time.', 'danger', 4000);
 							break;
 					}
 				} else {
